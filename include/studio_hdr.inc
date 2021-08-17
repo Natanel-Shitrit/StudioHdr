@@ -365,6 +365,29 @@ methodmap StudioHdr < AddressObject
 		return (0 <= bone_index < this.NumBones) ? Bone(view_as<Address>(this), bone_index) : NULL_BONE;
 	}
 	
+	// Finds a bone index by name.
+	public int FindBone(char[] name)
+	{
+		this.Validate();
+		
+		char current_name[64];
+		for (int current_bone, num_bones = this.NumBones; current_bone < num_bones; current_bone++)
+        {
+        	// Get current bone.
+            this.GetBone(current_bone).GetName(current_name, sizeof(current_name));
+            
+            // Compare current name to the given name.
+            if (StrEqual(current_name, name))
+            {
+            	// Return the index if it was the bone searched for.
+            	return current_bone;
+            }
+        }
+        
+        // If it wasn't found, this will be invalid index.
+		return -1;
+	}
+
 	// Hitboxes
 	property int NumHitboxSets
 	{
