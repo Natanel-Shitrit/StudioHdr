@@ -24,25 +24,47 @@
 // Offset for 'CStudioHdr *m_pStudioHdr' inside 'CBaseAnimating' class.
 int offset_m_pStudioHdr;
 
-// Offsets for 'studiohdr_t' struct members.
+// Bones
+Address offset_numbones;
+Address offset_boneindex;
+int sizeof_mstudiobone_t;
+Address offset_pos;
+
+// Hitbox Sets
+Address offset_numhitboxsets;
+Address offset_hitboxsetindex;
+int sizeof_mstudiohitboxset_t;
+
+// Hitboxs
+Address offset_numhitboxes;
+Address offset_hitboxindex;
+int sizeof_mstudiobbox_t;
+Address offset_bone;
+Address offset_group;
+Address offset_bbmin;
+Address offset_bbmax;
+Address offset_angOffsetOrientation;
+Address offset_flCapsuleRadius;
+
+// Skins
 Address offset_numskinfamilies;
+
+// Body Parts
 Address offset_numbodyparts;
 Address offset_bodypartindex;
-Address offset_numlocalattachments;
-Address offset_localattachmentindex;
-Address offset_numlocalposeparameters;
-Address offset_localposeparamindex;
-
-// Structs sizes
 int sizeof_mstudiobodyparts_t;
-int sizeof_mstudioattachment_t;
-int sizeof_mstudioposeparamdesc_t;
-
-// Offsets for 'mstudiobodyparts_t' struct members.
 Address offset_nummodels;
 Address offset_base;
 
-// Offsets for 'mstudioposeparamdesc_t' struct members.
+// Attachments
+Address offset_numlocalattachments;
+Address offset_localattachmentindex;
+int sizeof_mstudioattachment_t;
+
+// Pose Parameters
+Address offset_numlocalposeparameters;
+Address offset_localposeparamindex;
+int sizeof_mstudioposeparamdesc_t;
 Address offset_start;
 Address offset_end;
 
@@ -84,6 +106,131 @@ methodmap BaseStudioHdrMember < AddressObject
 		
 		// Load the string from the address of the name.
 		LoadStringFromAddress(view_as<Address>(this) + this.sznameindex, name, name_len);
+	}
+}
+
+// Bone //
+enum Bone
+{
+	NULL_BONE
+}
+
+methodmap Bone < BaseStudioHdrMember
+{
+	public Bone(Address studio_hdr_base, int bone_index)
+	{
+		// 'studiohdr_t' [base] + 'boneindex' [offset] + (size of 'mstudiobone_t' * index [get item based on index])
+		return view_as<Bone>(studio_hdr_base + LoadFromAddress(studio_hdr_base + offset_boneindex, NumberType_Int32) + view_as<Address>(sizeof_mstudiobone_t * bone_index));
+	}
+	
+	public void GetPos(float pos[3])
+	{
+		this.Validate();
+		
+		LoadVectorFromAddress(view_as<Address>(this) + offset_pos, pos);
+	}
+}
+
+// Hitbox //
+enum Hitbox
+{
+	NULL_HITBOX
+}
+
+methodmap Hitbox < AddressObject
+{
+	public Hitbox(Address hitboxset_base, int hitbox_index)
+	{
+		// 'mstudiohitboxset_t' [base] + 'numlocalseq' [offset] + (size of 'mstudiobbox_t' * index [get item based on index])
+		return view_as<Hitbox>(hitboxset_base + LoadFromAddress(hitboxset_base + offset_hitboxindex, NumberType_Int32) + view_as<Address>(sizeof_mstudiobbox_t * hitbox_index));
+	}
+	
+	property int bone
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'bone' [offset]
+			return LoadFromAddress(view_as<Address>(this) + offset_bone, NumberType_Int32);
+		}
+	}
+	
+	property int group
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'group' [offset]
+			return LoadFromAddress(view_as<Address>(this) + offset_group, NumberType_Int32);
+		}
+	}
+	
+	public void GetBBmin(float bbmin[3])
+	{
+		this.Validate();
+		
+		LoadVectorFromAddress(view_as<Address>(this) + offset_bbmin, bbmin);
+	}
+	
+	public void GetBBmax(float bbmax[3])
+	{
+		this.Validate();
+		
+		LoadVectorFromAddress(view_as<Address>(this) + offset_bbmax, bbmax);
+	}
+	
+	public void GetAngOffsetOrientation(float angOffsetOrientation[3])
+	{
+		this.Validate();
+		
+		LoadVectorFromAddress(view_as<Address>(this) + offset_angOffsetOrientation, angOffsetOrientation);
+	}
+
+	property float flCapsuleRadius
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'flCapsuleRadius' [offset]
+			return LoadFromAddress(view_as<Address>(this) + offset_flCapsuleRadius, NumberType_Int32);
+		}
+	}
+}
+
+// HitboxSet //
+enum HitboxSet
+{
+	NULL_HITBOX_SET
+}
+
+methodmap HitboxSet < BaseStudioHdrMember
+{
+	public HitboxSet(Address studio_hdr_base, int hitboxset_index)
+	{
+		// 'studiohdr_t' [base] + 'hitboxsetindex' [offset] + (size of 'mstudiohitboxset_t' * index [get item based on index])
+		return view_as<HitboxSet>(studio_hdr_base + LoadFromAddress(studio_hdr_base + offset_hitboxsetindex, NumberType_Int32) + view_as<Address>(sizeof_mstudiohitboxset_t * hitboxset_index));
+	}
+	
+	property int NumHitboxs
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'numhitboxes' [offset] 
+			return LoadFromAddress(view_as<Address>(this) + offset_numhitboxes, NumberType_Int32);
+		}
+	}
+	
+	public Hitbox GetHitbox(int hitbox_index)
+	{
+		this.Validate();
+		
+		// Make sure the part index is in valid range.
+		return (0 <= hitbox_index < this.NumHitboxs) ? Hitbox(view_as<Address>(this), hitbox_index) : NULL_HITBOX;
 	}
 }
 
@@ -197,7 +344,47 @@ methodmap StudioHdr < AddressObject
 		// Load 'studiohdr_t m_pStudioHdr' from 'CStudioHdr m_pStudioHdr' pointer. (can be treated as if it was a studiohdr_t **)
 		return view_as<StudioHdr>(LoadFromAddress(view_as<Address>(GetEntData(entity, offset_m_pStudioHdr)), NumberType_Int32));
 	}
+
+	// Bones
+	property int NumBones
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'numbones' [offset] 
+			return LoadFromAddress(view_as<Address>(this) + offset_numbones, NumberType_Int32);
+		}
+	}
 	
+	public Bone GetBone(int bone_index)
+	{
+		this.Validate();
+		
+		// Make sure the part index is in valid range.
+		return (0 <= bone_index < this.NumBones) ? Bone(view_as<Address>(this), bone_index) : NULL_BONE;
+	}
+	
+	// Hitboxes
+	property int NumHitboxSets
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'numhitboxsets' [offset] 
+			return LoadFromAddress(view_as<Address>(this) + offset_numhitboxsets, NumberType_Int32);
+		}
+	}
+	
+	public HitboxSet GetHitboxSet(int hitboxset_index)
+	{
+		this.Validate();
+		
+		// Make sure the part index is in valid range.
+		return (0 <= hitboxset_index < this.NumHitboxSets) ? HitboxSet(view_as<Address>(this), hitboxset_index) : NULL_HITBOX_SET;
+	}
+
 	// Skin Families
 	property int SkinFamiliesCount
 	{
@@ -398,6 +585,30 @@ public void OnPluginStart()
 	
 	offset_m_pStudioHdr += offset;
 	
+	// [offset] studiohdr_t::numbones
+	if ((offset_numbones = view_as<Address>(gamedata.GetOffset("studiohdr_t::numbones"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::numbones' offset.");
+	}
+
+	// [offset] studiohdr_t::boneindex
+	if ((offset_boneindex = view_as<Address>(gamedata.GetOffset("studiohdr_t::boneindex"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::boneindex' offset.");
+	}
+
+	// [offset] studiohdr_t::numhitboxsets
+	if ((offset_numhitboxsets = view_as<Address>(gamedata.GetOffset("studiohdr_t::numhitboxsets"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::numhitboxsets' offset.");
+	}
+
+	// [offset] studiohdr_t::hitboxsetindex
+	if ((offset_hitboxsetindex = view_as<Address>(gamedata.GetOffset("studiohdr_t::hitboxsetindex"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::hitboxsetindex' offset.");
+	}
+
 	// [offset] studiohdr_t::numskinfamilies
 	if ((offset_numskinfamilies = view_as<Address>(gamedata.GetOffset("studiohdr_t::numskinfamilies"))) == INVALID_ADDRESS_OFFSET)
 	{
@@ -440,6 +651,60 @@ public void OnPluginStart()
 		SetFailState("Failed to get 'studiohdr_t::localposeparamindex' offset.");
 	}
 	
+	// [offset] mstudiobone_t::pos
+	if ((offset_pos = view_as<Address>(gamedata.GetOffset("mstudiobone_t::pos"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobone_t::pos' offset.");
+	}
+
+	// [offset] mstudiohitboxset_t::numhitboxes
+	if ((offset_numhitboxes = view_as<Address>(gamedata.GetOffset("mstudiohitboxset_t::numhitboxes"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobone_t::numhitboxes' offset.");
+	}
+
+	// [offset] mstudiohitboxset_t::hitboxindex
+	if ((offset_hitboxindex = view_as<Address>(gamedata.GetOffset("mstudiohitboxset_t::hitboxindex"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiohitboxset_t::hitboxindex' offset.");
+	}
+
+	// [offset] mstudiobbox_t::bone
+	if ((offset_bone = view_as<Address>(gamedata.GetOffset("mstudiobbox_t::bone"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobbox_t::bone' offset.");
+	}
+
+	// [offset] mstudiobbox_t::group
+	if ((offset_group = view_as<Address>(gamedata.GetOffset("mstudiobbox_t::group"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobbox_t::group' offset.");
+	}
+
+	// [offset] mstudiobbox_t::bbmin
+	if ((offset_bbmin = view_as<Address>(gamedata.GetOffset("mstudiobbox_t::bbmin"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobbox_t::bbmin' offset.");
+	}
+
+	// [offset] mstudiobbox_t::bbmax
+	if ((offset_bbmax = view_as<Address>(gamedata.GetOffset("mstudiobbox_t::bbmax"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobbox_t::bbmax' offset.");
+	}
+
+	// [offset] mstudiobbox_t::angOffsetOrientation
+	if ((offset_angOffsetOrientation = view_as<Address>(gamedata.GetOffset("mstudiobbox_t::angOffsetOrientation"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobbox_t::angOffsetOrientation' offset.");
+	}
+
+	// [offset] mstudiobbox_t::flCapsuleRadius
+	if ((offset_flCapsuleRadius = view_as<Address>(gamedata.GetOffset("mstudiobbox_t::flCapsuleRadius"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobbox_t::flCapsuleRadius' offset.");
+	}
+	
 	// [offset] mstudiobodyparts_t::nummodels
 	if ((offset_nummodels = view_as<Address>(gamedata.GetOffset("mstudiobodyparts_t::nummodels"))) == INVALID_ADDRESS_OFFSET)
 	{
@@ -470,6 +735,24 @@ public void OnPluginStart()
 		SetFailState("Failed to get 'sznameindex' offset.");
 	}
 	
+	// [sizeof] mstudiobone_t
+	if ((sizeof_mstudiobone_t = gamedata.GetOffset("mstudiobone_t::sizeof")) == -1)
+	{
+		SetFailState("Failed to get 'mstudiobone_t::sizeof' offset.");
+	}
+	
+	// [sizeof] mstudiohitboxset_t
+	if ((sizeof_mstudiohitboxset_t = gamedata.GetOffset("mstudiohitboxset_t::sizeof")) == -1)
+	{
+		SetFailState("Failed to get 'mstudiohitboxset_t::sizeof' offset.");
+	}
+	
+	// [sizeof] mstudiobbox_t
+	if ((sizeof_mstudiobbox_t = gamedata.GetOffset("mstudiobbox_t::sizeof")) == -1)
+	{
+		SetFailState("Failed to get 'mstudiobbox_t::sizeof' offset.");
+	}
+
 	// [sizeof] mstudiobodyparts_t
 	if ((sizeof_mstudiobodyparts_t = gamedata.GetOffset("mstudiobodyparts_t::sizeof")) == -1)
 	{

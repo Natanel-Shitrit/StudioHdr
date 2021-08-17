@@ -27,6 +27,30 @@
 				"linux"     "68"
 			}
 			
+			"studiohdr_t::numbones"
+			{
+				"windows"   "156"
+				"linux"     "156"
+			}
+			
+			"studiohdr_t::boneindex"
+			{
+				"windows"   "160"
+				"linux"     "160"
+			}
+
+			"studiohdr_t::numhitboxsets"
+			{
+				"windows"   "172"
+				"linux"     "172"
+			}
+			
+			"studiohdr_t::hitboxsetindex"
+			{
+				"windows"   "176"
+				"linux"     "176"
+			}
+
 			"studiohdr_t::numskinfamilies"
 			{
 				"windows"   "224"
@@ -68,7 +92,61 @@
 				"windows"   "304"
 				"linux"     "304"
 			}
-			
+
+			"mstudiobone_t::pos"
+			{
+				"windows"   "32"
+				"linux"     "32"
+			}
+
+			"mstudiohitboxset_t::numhitboxes"
+			{
+				"windows"   "4"
+				"linux"     "4"
+			}
+
+			"mstudiohitboxset_t::hitboxindex"
+			{
+				"windows"   "8"
+				"linux"     "8"
+			}
+
+			"mstudiobbox_t::bone"
+			{
+				"windows"   "0"
+				"linux"     "0"
+			}
+
+			"mstudiobbox_t::group"
+			{
+				"windows"   "4"
+				"linux"     "4"
+			}
+
+			"mstudiobbox_t::bbmin"
+			{
+				"windows"   "8"
+				"linux"     "8"
+			}
+
+			"mstudiobbox_t::bbmax"
+			{
+				"windows"   "20"
+				"linux"     "20"
+			}
+
+			"mstudiobbox_t::angOffsetOrientation"
+			{
+				"windows"   "36"
+				"linux"     "36"
+			}
+
+			"mstudiobbox_t::flCapsuleRadius"
+			{
+				"windows"   "48"
+				"linux"     "48"
+			}
+
 			"mstudiobodyparts_t::nummodels"
 			{
 				"windows"   "4"
@@ -104,6 +182,24 @@
 			{
 				"windows"   "16"
 				"linux"     "16"
+			}
+
+			"mstudiobone_t::sizeof"
+			{
+				"windows"   "216"
+				"linux"     "216"
+			}
+
+			"mstudiohitboxset_t::sizeof"
+			{
+				"windows"   "12"
+				"linux"     "12"
+			}
+
+			"mstudiobbox_t::sizeof"
+			{
+				"windows"   "68"
+				"linux"     "68"
 			}
 			
 			"mstudioattachment_t::sizeof"
