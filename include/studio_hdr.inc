@@ -585,6 +585,14 @@ stock void LoadStringFromAddress(Address charptr, char[] buffer, int buffer_size
 	buffer[current_char_index] = '\0';
 }
 
+stock void LoadVectorFromAddress(Address vec_address, float vec_buf[3])
+{
+	for (int current_index; current_index < 3; current_index++)
+	{
+		vec_buf[current_index] = LoadFromAddress(vec_address + view_as<Address>(4 * current_index), NumberType_Int32);
+	}
+}
+
 public void OnPluginStart()
 {
 	GameData gamedata = new GameData("studio_hdr.games");
