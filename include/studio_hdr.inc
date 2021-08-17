@@ -78,7 +78,7 @@ methodmap BaseStudioHdrMember < AddressObject
 	}
 	
 	// Get StudioHdr object name.
-	public bool GetName(char[] name, int name_len)
+	public void GetName(char[] name, int name_len)
 	{
 		this.Validate();
 		
