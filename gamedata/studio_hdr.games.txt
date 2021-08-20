@@ -16,203 +16,213 @@
 
 "Games"
 {
-	"csgo"
-	{
-		"Offsets"
-		{
-			// https://github.com/qubka/Zombie-Plague/blob/67266c6b90d88180264745ccebff709531c722d0/gamedata/plugin.turret.txt#L8
-			"CBaseAnimating::StudioHdr"
-			{
-				"windows"   "68"
-				"linux"     "68"
-			}
-			
-			"studiohdr_t::numbones"
-			{
-				"windows"   "156"
-				"linux"     "156"
-			}
-			
-			"studiohdr_t::boneindex"
-			{
-				"windows"   "160"
-				"linux"     "160"
-			}
+    "csgo"
+    {
+        "Signatures"
+        {
+            "ModelSoundsCache_LoadModel"
+            {
+                "library"	"server"
+                "windows"   "\x8B\xD1\x8B\x0D\x2A\x2A\x2A\x2A\x56"
+                "linux"		"\x55\x89\xE5\x56\x53\x83\xEC\x10\xA1\x2A\x2A\x2A\x2A\x8B\x4D\x08"
+            }
 
-			"studiohdr_t::numhitboxsets"
-			{
-				"windows"   "172"
-				"linux"     "172"
-			}
-			
-			"studiohdr_t::hitboxsetindex"
-			{
-				"windows"   "176"
-				"linux"     "176"
-			}
+            "ModelSoundsCache_FinishModel"
+            {
+                "library"	"server"
+                "windows"   "\x51\x56\x57\x8B\xF9\x8B\x4F\x08"
+                "linux"		"\x55\x89\xE5\x56\x53\x83\xEC\x20\x8B\x5D\x08\x85\xDB"
+            }
+        }
 
-			"studiohdr_t::numskinfamilies"
-			{
-				"windows"   "224"
-				"linux"     "224"
-			}
-			
-			"studiohdr_t::numbodyparts"
-			{
-				"windows"   "232"
-				"linux"     "232"
-			}
-			
-			"studiohdr_t::bodypartindex"
-			{
-				"windows"   "236"
-				"linux"     "236"
-			}
-			
-			"studiohdr_t::numlocalattachments"
-			{
-				"windows"   "240"
-				"linux"     "240"
-			}
-			
-			"studiohdr_t::localattachmentindex"
-			{
-				"windows"   "244"
-				"linux"     "244"
-			}
-			
-			"studiohdr_t::numlocalposeparameters"
-			{
-				"windows"   "300"
-				"linux"     "300"
-			}
-			
-			"studiohdr_t::localposeparamindex"
-			{
-				"windows"   "304"
-				"linux"     "304"
-			}
+        "Offsets"
+        {
+            "studiohdr_t::numbones"
+            {
+                "windows"   "156"
+                "linux"     "156"
+            }
+            
+            "studiohdr_t::boneindex"
+            {
+                "windows"   "160"
+                "linux"     "160"
+            }
 
-			"mstudiobone_t::pos"
-			{
-				"windows"   "32"
-				"linux"     "32"
-			}
+            "studiohdr_t::numhitboxsets"
+            {
+                "windows"   "172"
+                "linux"     "172"
+            }
+            
+            "studiohdr_t::hitboxsetindex"
+            {
+                "windows"   "176"
+                "linux"     "176"
+            }
 
-			"mstudiohitboxset_t::numhitboxes"
-			{
-				"windows"   "4"
-				"linux"     "4"
-			}
+            "studiohdr_t::numskinfamilies"
+            {
+                "windows"   "224"
+                "linux"     "224"
+            }
+            
+            "studiohdr_t::numbodyparts"
+            {
+                "windows"   "232"
+                "linux"     "232"
+            }
+            
+            "studiohdr_t::bodypartindex"
+            {
+                "windows"   "236"
+                "linux"     "236"
+            }
+            
+            "studiohdr_t::numlocalattachments"
+            {
+                "windows"   "240"
+                "linux"     "240"
+            }
+            
+            "studiohdr_t::localattachmentindex"
+            {
+                "windows"   "244"
+                "linux"     "244"
+            }
+            
+            "studiohdr_t::numlocalposeparameters"
+            {
+                "windows"   "300"
+                "linux"     "300"
+            }
+            
+            "studiohdr_t::localposeparamindex"
+            {
+                "windows"   "304"
+                "linux"     "304"
+            }
 
-			"mstudiohitboxset_t::hitboxindex"
-			{
-				"windows"   "8"
-				"linux"     "8"
-			}
+            "mstudiobone_t::pos"
+            {
+                "windows"   "32"
+                "linux"     "32"
+            }
 
-			"mstudiobbox_t::bone"
-			{
-				"windows"   "0"
-				"linux"     "0"
-			}
+            "mstudiohitboxset_t::numhitboxes"
+            {
+                "windows"   "4"
+                "linux"     "4"
+            }
 
-			"mstudiobbox_t::group"
-			{
-				"windows"   "4"
-				"linux"     "4"
-			}
+            "mstudiohitboxset_t::hitboxindex"
+            {
+                "windows"   "8"
+                "linux"     "8"
+            }
 
-			"mstudiobbox_t::bbmin"
-			{
-				"windows"   "8"
-				"linux"     "8"
-			}
+            "mstudiobbox_t::bone"
+            {
+                "windows"   "0"
+                "linux"     "0"
+            }
 
-			"mstudiobbox_t::bbmax"
-			{
-				"windows"   "20"
-				"linux"     "20"
-			}
+            "mstudiobbox_t::group"
+            {
+                "windows"   "4"
+                "linux"     "4"
+            }
 
-			"mstudiobbox_t::angOffsetOrientation"
-			{
-				"windows"   "36"
-				"linux"     "36"
-			}
+            "mstudiobbox_t::bbmin"
+            {
+                "windows"   "8"
+                "linux"     "8"
+            }
 
-			"mstudiobbox_t::flCapsuleRadius"
-			{
-				"windows"   "48"
-				"linux"     "48"
-			}
+            "mstudiobbox_t::bbmax"
+            {
+                "windows"   "20"
+                "linux"     "20"
+            }
 
-			"mstudiobodyparts_t::nummodels"
-			{
-				"windows"   "4"
-				"linux"     "4"
-			}
-			
-			"mstudiobodyparts_t::base"
-			{
-				"windows"   "8"
-				"linux"     "8"
-			}
-			
-			"mstudioposeparamdesc_t::start"
-			{
-				"windows"   "8"
-				"linux"     "8"
-			}
+            "mstudiobbox_t::angOffsetOrientation"
+            {
+                "windows"   "36"
+                "linux"     "36"
+            }
 
-			"mstudioposeparamdesc_t::end"
-			{
-				"windows"   "12"
-				"linux"     "12"
-			}
+            "mstudiobbox_t::flCapsuleRadius"
+            {
+                "windows"   "48"
+                "linux"     "48"
+            }
 
-			"sznameindex"
-			{
-				"windows"   "0"
-				"linux"     "0"
-			}
-			
-			// Not really offsets but sizes of structs
-			"mstudiobodyparts_t::sizeof"
-			{
-				"windows"   "16"
-				"linux"     "16"
-			}
+            "mstudiobodyparts_t::nummodels"
+            {
+                "windows"   "4"
+                "linux"     "4"
+            }
+            
+            "mstudiobodyparts_t::base"
+            {
+                "windows"   "8"
+                "linux"     "8"
+            }
+            
+            "mstudioposeparamdesc_t::start"
+            {
+                "windows"   "8"
+                "linux"     "8"
+            }
 
-			"mstudiobone_t::sizeof"
-			{
-				"windows"   "216"
-				"linux"     "216"
-			}
+            "mstudioposeparamdesc_t::end"
+            {
+                "windows"   "12"
+                "linux"     "12"
+            }
 
-			"mstudiohitboxset_t::sizeof"
-			{
-				"windows"   "12"
-				"linux"     "12"
-			}
+            "sznameindex"
+            {
+                "windows"   "0"
+                "linux"     "0"
+            }
+            
+            // Not really offsets but sizes of structs
+            "mstudiobodyparts_t::sizeof"
+            {
+                "windows"   "16"
+                "linux"     "16"
+            }
 
-			"mstudiobbox_t::sizeof"
-			{
-				"windows"   "68"
-				"linux"     "68"
-			}
-			
-			"mstudioattachment_t::sizeof"
-			{
-				"windows"   "92"
-				"linux"     "92"
-			}
+            "mstudiobone_t::sizeof"
+            {
+                "windows"   "216"
+                "linux"     "216"
+            }
 
-			"mstudioposeparamdesc_t::sizeof"
-			{
-				"windows"   "20"
-				"linux"     "20"
-			}
-		}
-	}
+            "mstudiohitboxset_t::sizeof"
+            {
+                "windows"   "12"
+                "linux"     "12"
+            }
+
+            "mstudiobbox_t::sizeof"
+            {
+                "windows"   "68"
+                "linux"     "68"
+            }
+            
+            "mstudioattachment_t::sizeof"
+            {
+                "windows"   "92"
+                "linux"     "92"
+            }
+
+            "mstudioposeparamdesc_t::sizeof"
+            {
+                "windows"   "20"
+                "linux"     "20"
+            }
+        }
+    }
 }

@@ -21,8 +21,9 @@
 
 #define INVALID_ADDRESS_OFFSET view_as<Address>(-1)
 
-// Offset for 'CStudioHdr *m_pStudioHdr' inside 'CBaseAnimating' class.
-int offset_m_pStudioHdr;
+// Functions to get CStudioHdr from model path & delete it.
+Handle load_model;
+Handle delete_model;
 
 // Bones
 Address offset_numbones;
@@ -331,18 +332,25 @@ enum StudioHdr
 
 methodmap StudioHdr < AddressObject
 {
-	// Constructor [entity]
-	public StudioHdr(int entity)
+	// Constructor [model path]
+	public StudioHdr(const char[] model_path)
 	{
-		// If the entity doesn't have 'm_hLightingOrigin' prop, it's not a CBaseAnimating.
-		if (!HasEntProp(entity, Prop_Data, "m_hLightingOrigin"))
+		// Create a new CStudioHdr variable based on the model path.
+		Address CStudioHdr = SDKCall(load_model, model_path);
+		
+		if (!CStudioHdr)
 		{
-			// "Invalid" entity sent.
 			return NULL_STUDIO_HDR;
 		}
 		
-		// Load 'studiohdr_t m_pStudioHdr' from 'CStudioHdr m_pStudioHdr' pointer. (can be treated as if it was a studiohdr_t **)
-		return view_as<StudioHdr>(LoadFromAddress(view_as<Address>(GetEntData(entity, offset_m_pStudioHdr)), NumberType_Int32));
+		// Load 'studiohdr_t *m_pStudioHdr' from 'CStudioHdr' pointer. (can be treated as if it was a studiohdr_t **)
+		StudioHdr m_pStudioHdr = view_as<StudioHdr>(LoadFromAddress(CStudioHdr, NumberType_Int32));
+		
+		// Delete the CStudioHdr variable to not leak memory.
+		SDKCall(delete_model, CStudioHdr);
+		
+		// Return the 'studiohdr_t' variable.
+		return m_pStudioHdr;
 	}
 
 	// Bones
@@ -593,6 +601,13 @@ stock void LoadVectorFromAddress(Address vec_address, float vec_buf[3])
 	}
 }
 
+stock StudioHdr GetEntityStudioHdr(int entity)
+{
+	char model[PLATFORM_MAX_PATH];
+	GetEntPropString(entity, Prop_Data, "m_ModelName", model, sizeof(model));
+	return StudioHdr(model);
+}
+
 public void OnPluginStart()
 {
 	GameData gamedata = new GameData("studio_hdr.games");
@@ -602,20 +617,29 @@ public void OnPluginStart()
 		SetFailState("Couldn't find gamedata file 'studio_hdr.games.txt'.");
 	}
 	
-	// CBaseAnimating::m_pStudioHdr
-	if ((offset_m_pStudioHdr = FindSendPropInfo("CBaseAnimating", "m_hLightingOrigin")) <= 0)
+	// CStudioHdr *ModelSoundsCache_LoadModel( const char *filename )
+	StartPrepSDKCall(SDKCall_Static);
+	PrepSDKCall_SetFromConf(gamedata, SDKConf_Signature, "ModelSoundsCache_LoadModel");
+	
+	PrepSDKCall_AddParameter(SDKType_String, SDKPass_Pointer);
+	PrepSDKCall_SetReturnInfo(SDKType_PlainOldData, SDKPass_Plain);
+	
+	if (!(load_model = EndPrepSDKCall()))
 	{
-		SetFailState("Failed to get 'CBaseAnimating::m_hLightingOrigin' offset.");
+		SetFailState("Missing signature 'ModelSoundsCache_LoadModel'");
 	}
 	
-	int offset = gamedata.GetOffset("CBaseAnimating::StudioHdr");
-	if (offset == -1)
+	// void ModelSoundsCache_FinishModel( CStudioHdr *hdr )
+	StartPrepSDKCall(SDKCall_Static);
+	PrepSDKCall_SetFromConf(gamedata, SDKConf_Signature, "ModelSoundsCache_FinishModel");
+	
+	PrepSDKCall_AddParameter(SDKType_PlainOldData, SDKPass_Plain);
+	
+	if (!(delete_model = EndPrepSDKCall()))
 	{
-		SetFailState("Failed to get 'CBaseAnimating::StudioHdr' offset.");
+		SetFailState("Missing signature 'ModelSoundsCache_FinishModel'");
 	}
-	
-	offset_m_pStudioHdr += offset;
-	
+
 	// [offset] studiohdr_t::numbones
 	if ((offset_numbones = view_as<Address>(gamedata.GetOffset("studiohdr_t::numbones"))) == INVALID_ADDRESS_OFFSET)
 	{
