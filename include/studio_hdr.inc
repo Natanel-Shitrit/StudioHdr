@@ -31,6 +31,19 @@ Address offset_boneindex;
 int sizeof_mstudiobone_t;
 Address offset_pos;
 
+// Animations
+Address offset_numlocalanim;
+Address offset_localanimindex;
+int sizeof_mstudioanimdesc_t;
+Address offset_sznameindex_anim;
+
+// Sequences
+Address offset_numlocalseq;
+Address offset_localseqindex;
+int sizeof_mstudioseqdesc_t;
+Address offset_szlabelindex;
+Address offset_flags;
+
 // Hitbox Sets
 Address offset_numhitboxsets;
 Address offset_hitboxsetindex;
@@ -128,7 +141,7 @@ methodmap Bone < BaseStudioHdrMember
 	{
 		this.Validate();
 		
-		LoadVectorFromAddress(view_as<Address>(this) + offset_pos, pos);
+		LoadArrayFromAddress(view_as<Address>(this) + offset_pos, pos, sizeof(pos));
 	}
 }
 
@@ -172,21 +185,21 @@ methodmap Hitbox < AddressObject
 	{
 		this.Validate();
 		
-		LoadVectorFromAddress(view_as<Address>(this) + offset_bbmin, bbmin);
+		LoadArrayFromAddress(view_as<Address>(this) + offset_bbmin, bbmin, sizeof(bbmin));
 	}
 	
 	public void GetBBmax(float bbmax[3])
 	{
 		this.Validate();
 		
-		LoadVectorFromAddress(view_as<Address>(this) + offset_bbmax, bbmax);
+		LoadArrayFromAddress(view_as<Address>(this) + offset_bbmax, bbmax, sizeof(bbmax));
 	}
 	
 	public void GetAngOffsetOrientation(float angOffsetOrientation[3])
 	{
 		this.Validate();
 		
-		LoadVectorFromAddress(view_as<Address>(this) + offset_angOffsetOrientation, angOffsetOrientation);
+		LoadArrayFromAddress(view_as<Address>(this) + offset_angOffsetOrientation, angOffsetOrientation, sizeof(angOffsetOrientation));
 	}
 
 	property float flCapsuleRadius
@@ -232,6 +245,89 @@ methodmap HitboxSet < BaseStudioHdrMember
 		
 		// Make sure the part index is in valid range.
 		return (0 <= hitbox_index < this.NumHitboxs) ? Hitbox(view_as<Address>(this), hitbox_index) : NULL_HITBOX;
+	}
+}
+
+// Animation //
+enum Animation
+{
+	NULL_ANIMATION
+}
+
+methodmap Animation < AddressObject
+{
+	public Animation(Address studio_hdr_base, int sequence_index)
+	{
+		// 'studiohdr_t' [base] + 'localanimindex' [offset] + (size of 'mstudioanimdesc_t' * index [get item based on index])
+		return view_as<Animation>(studio_hdr_base + LoadFromAddress(studio_hdr_base + offset_localanimindex, NumberType_Int32) + view_as<Address>(sizeof_mstudioanimdesc_t * sequence_index));
+	}
+	
+	// Get the index to the name pointer.
+	property Address sznameindex
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'sznameindex' [offset]
+			return LoadFromAddress(view_as<Address>(this) + offset_sznameindex_anim, NumberType_Int32);
+		}
+	}
+	
+	// Get Animation name.
+	public bool GetName(char[] name, int name_len)
+	{
+		this.Validate();
+		
+		// Load the string from the address of the name.
+		LoadStringFromAddress(view_as<Address>(this) + this.sznameindex, name, name_len);
+	}
+}
+
+// Sequence //
+enum Sequence
+{
+	NULL_SEQUENCE
+}
+
+methodmap Sequence < AddressObject
+{
+	public Sequence(Address studio_hdr_base, int sequence_index)
+	{
+		// 'studiohdr_t' [base] + 'localseqindex' [offset] + (size of 'mstudioseqdesc_t' * index [get item based on index])
+		return view_as<Sequence>(studio_hdr_base + LoadFromAddress(studio_hdr_base + offset_localseqindex, NumberType_Int32) + view_as<Address>(sizeof_mstudioseqdesc_t * sequence_index));
+	}
+	
+	// Get the index to the name pointer.
+	property Address szlabelindex
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'szlabelindex' [offset]
+			return LoadFromAddress(view_as<Address>(this) + offset_szlabelindex, NumberType_Int32);
+		}
+	}
+	
+	// Get StudioHdr object name.
+	public bool GetLabelName(char[] name, int name_len)
+	{
+		this.Validate();
+		
+		// Load the string from the address of the name.
+		LoadStringFromAddress(view_as<Address>(this) + this.szlabelindex, name, name_len);
+	}
+	
+	property int actweight
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'actweight' [offset]
+			return LoadFromAddress(view_as<Address>(this) + offset_actweight, NumberType_Int32);
+		}
 	}
 }
 
@@ -389,6 +485,92 @@ methodmap StudioHdr < AddressObject
             {
             	// Return the index if it was the bone searched for.
             	return current_bone;
+            }
+        }
+        
+        // If it wasn't found, this will be invalid index.
+		return -1;
+	}
+
+	// Animations
+	property int NumAnimations
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'numlocalanim' [offset] 
+			return LoadFromAddress(view_as<Address>(this) + offset_numlocalanim, NumberType_Int32);
+		}
+	}
+	
+	public Animation GetAnimation(int animation_index)
+	{
+		this.Validate();
+		
+		// Make sure the part index is in valid range.
+		return (0 <= animation_index < this.NumAnimations) ? Animation(view_as<Address>(this), animation_index) : NULL_ANIMATION;
+	}
+
+	// Finds an animation index by name.
+	public int FindAnimation(char[] name)
+	{
+		this.Validate();
+		
+		char current_name[64];
+		for (int current_animation, num_animations = this.NumAnimations; current_animation < num_animations; current_animation++)
+        {
+        	// Get current animation.
+            this.GetAnimation(current_animation).GetName(current_name, sizeof(current_name));
+            
+            // Compare current name to the given name.
+            if (StrEqual(current_name, name))
+            {
+            	// Return the index if it was the animation searched for.
+            	return current_animation;
+            }
+        }
+        
+        // If it wasn't found, this will be invalid index.
+		return -1;
+	}
+
+	// Sequences
+	property int NumSequences
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'numlocalseq' [offset]
+			return LoadFromAddress(view_as<Address>(this) + offset_numlocalseq, NumberType_Int32);
+		}
+	}
+	
+	public Sequence GetSequence(int sequence_index)
+	{
+		this.Validate();
+		
+		// Make sure the part index is in valid range.
+		return (0 <= sequence_index < this.NumSequences) ? Sequence(view_as<Address>(this), sequence_index) : NULL_SEQUENCE;
+	}
+
+	// Finds a sequence index by name.
+	public int FindSequence(char[] name)
+	{
+		this.Validate();
+		
+		char current_name[64];
+		for (int current_sequence, num_sequences = this.NumSequences; current_sequence < num_sequences; current_sequence++)
+        {
+        	// Get current sequence.
+            this.GetSequence(current_sequence).GetLabelName(current_name, sizeof(current_name));
+            
+            // Compare current name to the given name.
+            if (StrEqual(current_name, name))
+            {
+            	// Return the index if it was the sequence searched for.
+            	return current_sequence;
             }
         }
         
@@ -582,6 +764,7 @@ methodmap StudioHdr < AddressObject
 	}
 }
 
+// Loads a string from memory (null-terminated).
 stock void LoadStringFromAddress(Address charptr, char[] buffer, int buffer_size)
 {
 	int current_char_index;
@@ -593,11 +776,13 @@ stock void LoadStringFromAddress(Address charptr, char[] buffer, int buffer_size
 	buffer[current_char_index] = '\0';
 }
 
-stock void LoadVectorFromAddress(Address vec_address, float vec_buf[3])
+// Loads an array of values from memory.
+stock void LoadArrayFromAddress(Address address, any[] buffer, int size, NumberType datasize = NumberType_Int32)
 {
-	for (int current_index; current_index < 3; current_index++)
+	int datasize_bytes = view_as<int>(datasize) + (datasize == NumberType_Int32 ? 2 : 1);
+	for (int current_index; current_index < size; current_index++)
 	{
-		vec_buf[current_index] = LoadFromAddress(vec_address + view_as<Address>(4 * current_index), NumberType_Int32);
+		buffer[current_index] = LoadFromAddress(address + view_as<Address>(datasize_bytes * current_index), datasize);
 	}
 }
 
@@ -663,6 +848,30 @@ public void OnPluginStart()
 	{
 		SetFailState("Failed to get 'studiohdr_t::hitboxsetindex' offset.");
 	}
+	
+	// [offset] studiohdr_t::numlocalanim
+	if ((offset_numlocalanim = view_as<Address>(gamedata.GetOffset("studiohdr_t::numlocalanim"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::numlocalanim' offset.");
+	}
+
+	// [offset] studiohdr_t::localanimindex
+	if ((offset_localanimindex = view_as<Address>(gamedata.GetOffset("studiohdr_t::localanimindex"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::localanimindex' offset.");
+	}
+
+	// [offset] studiohdr_t::numlocalseq
+	if ((offset_numlocalseq = view_as<Address>(gamedata.GetOffset("studiohdr_t::numlocalseq"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::numlocalseq' offset.");
+	}
+
+	// [offset] studiohdr_t::localseqindex
+	if ((offset_localseqindex = view_as<Address>(gamedata.GetOffset("studiohdr_t::localseqindex"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'studiohdr_t::localseqindex' offset.");
+	}
 
 	// [offset] studiohdr_t::numskinfamilies
 	if ((offset_numskinfamilies = view_as<Address>(gamedata.GetOffset("studiohdr_t::numskinfamilies"))) == INVALID_ADDRESS_OFFSET)
@@ -681,7 +890,7 @@ public void OnPluginStart()
 	{
 		SetFailState("Failed to get 'studiohdr_t::bodypartindex' offset.");
 	}
-	
+
 	// [offset] studiohdr_t::numlocalattachments
 	if ((offset_numlocalattachments = view_as<Address>(gamedata.GetOffset("studiohdr_t::numlocalattachments"))) == INVALID_ADDRESS_OFFSET)
 	{
@@ -710,6 +919,24 @@ public void OnPluginStart()
 	if ((offset_pos = view_as<Address>(gamedata.GetOffset("mstudiobone_t::pos"))) == INVALID_ADDRESS_OFFSET)
 	{
 		SetFailState("Failed to get 'mstudiobone_t::pos' offset.");
+	}
+
+	// [offset] mstudioanimdesc_t::sznameindex
+	if ((offset_sznameindex_anim = view_as<Address>(gamedata.GetOffset("mstudioanimdesc_t::sznameindex"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudioanimdesc_t::sznameindex' offset.");
+	}
+
+	// [offset] mstudioseqdesc_t::szlabelindex
+	if ((offset_szlabelindex = view_as<Address>(gamedata.GetOffset("mstudioseqdesc_t::szlabelindex"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudioseqdesc_t::szlabelindex' offset.");
+	}
+	
+	// [offset] mstudioseqdesc_t::actweight
+	if ((offset_actweight = view_as<Address>(gamedata.GetOffset("mstudioseqdesc_t::actweight"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudioseqdesc_t::actweight' offset.");
 	}
 
 	// [offset] mstudiohitboxset_t::numhitboxes
@@ -766,6 +993,12 @@ public void OnPluginStart()
 		SetFailState("Failed to get 'mstudiobodyparts_t::nummodels' offset.");
 	}
 	
+	// [offset] mstudiobodyparts_t::base
+	if ((offset_base = view_as<Address>(gamedata.GetOffset("mstudiobodyparts_t::base"))) == INVALID_ADDRESS_OFFSET)
+	{
+		SetFailState("Failed to get 'mstudiobodyparts_t::base' offset.");
+	}
+
 	// [offset] mstudioposeparamdesc_t::start
 	if ((offset_start = view_as<Address>(gamedata.GetOffset("mstudioposeparamdesc_t::start"))) == INVALID_ADDRESS_OFFSET)
 	{
@@ -777,13 +1010,7 @@ public void OnPluginStart()
 	{
 		SetFailState("Failed to get 'mstudioposeparamdesc_t::end' offset.");
 	}
-	
-	// [offset] mstudiobodyparts_t::base
-	if ((offset_base = view_as<Address>(gamedata.GetOffset("mstudiobodyparts_t::base"))) == INVALID_ADDRESS_OFFSET)
-	{
-		SetFailState("Failed to get 'mstudiobodyparts_t::base' offset.");
-	}
-	
+
 	// [offset] sznameindex
 	if ((offset_sznameindex = view_as<Address>(gamedata.GetOffset("sznameindex"))) == INVALID_ADDRESS_OFFSET)
 	{
@@ -808,6 +1035,18 @@ public void OnPluginStart()
 		SetFailState("Failed to get 'mstudiobbox_t::sizeof' offset.");
 	}
 
+	// [sizeof] mstudioseqdesc_t
+	if ((sizeof_mstudioseqdesc_t = gamedata.GetOffset("mstudioseqdesc_t::sizeof")) == -1)
+	{
+		SetFailState("Failed to get 'mstudioseqdesc_t::sizeof' offset.");
+	}
+
+	// [sizeof] mstudioanimdesc_t
+	if ((sizeof_mstudioanimdesc_t = gamedata.GetOffset("mstudioanimdesc_t::sizeof")) == -1)
+	{
+		SetFailState("Failed to get 'mstudioanimdesc_t::sizeof' offset.");
+	}
+	
 	// [sizeof] mstudiobodyparts_t
 	if ((sizeof_mstudiobodyparts_t = gamedata.GetOffset("mstudiobodyparts_t::sizeof")) == -1)
 	{
