@@ -1,0 +1,44 @@
+"Offsets"
+{
+	"mstudiotexture_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiotexture_t::flags"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudiotexture_t::used"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudiotexture_t::unused1"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudiotexture_t::unused"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"mstudiotexture_t::unused"
+	{
+		"windows"	"64"
+		"linux"	"64"
+	}
+
+	"sizeof::mstudiotexture_t"
+	{
+		"windows"	"104"
+		"linux"	"104"
+	}
+}

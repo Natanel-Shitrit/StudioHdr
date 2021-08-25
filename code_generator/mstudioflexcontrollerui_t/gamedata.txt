@@ -1,0 +1,46 @@
+"Offsets"
+{
+	"mstudioflexcontrollerui_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioflexcontrollerui_t::szindex0"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioflexcontrollerui_t::szindex1"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioflexcontrollerui_t::szindex2"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudioflexcontrollerui_t::remaptype"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	// bool|stereo|
+
+	"mstudioflexcontrollerui_t::unused"
+	{
+		"windows"	"17"
+		"linux"	"17"
+	}
+
+	"sizeof::mstudioflexcontrollerui_t"
+	{
+		"windows"	"19"
+		"linux"	"19"
+	}
+}

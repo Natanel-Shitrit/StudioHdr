@@ -1,0 +1,41 @@
+struct studiohdr2_t
+{
+	// NOTE: For forward compat, make sure any methods in this struct
+	// are also available in studiohdr_t so no leaf code ever directly references
+	// a studiohdr2_t structure
+	DECLARE_BYTESWAP_DATADESC();
+	int numsrcbonetransform;
+	int srcbonetransformindex;
+
+	int	illumpositionattachmentindex;
+	inline int			IllumPositionAttachmentIndex() const { return illumpositionattachmentindex; }
+
+	float flMaxEyeDeflection;
+	inline float		MaxEyeDeflection() const { return flMaxEyeDeflection != 0.0f ? flMaxEyeDeflection : 0.866f; } // default to cos(30) if not set
+
+	int linearboneindex;
+	inline mstudiolinearbone_t *pLinearBones() const { return (linearboneindex) ? (mstudiolinearbone_t *)(((byte *)this) + linearboneindex) : NULL; }
+
+	int sznameindex;
+	inline char *pszName() { return (sznameindex) ? (char *)(((byte *)this) + sznameindex ) : NULL; }
+
+	int m_nBoneFlexDriverCount;
+	int m_nBoneFlexDriverIndex;
+	inline mstudioboneflexdriver_t *pBoneFlexDriver( int i ) const { Assert( i >= 0 && i < m_nBoneFlexDriverCount ); return (mstudioboneflexdriver_t *)(((byte *)this) + m_nBoneFlexDriverIndex) + i; }
+
+	CResourcePointer< PhysFeModelDesc_t > m_pFeModel; // this is functionally the same as having an index and a function, but more readable.
+
+	int m_nBodyGroupPresetCount;
+	int m_nBodyGroupPresetIndex;
+	inline mstudiobodygrouppreset_t *pBodyGroupPreset( int i ) const { Assert( i >= 0 && i < m_nBodyGroupPresetCount); return (mstudiobodygrouppreset_t *)(((byte *)this) + m_nBodyGroupPresetIndex) + i; };
+	
+	int padding_unused; // This hasn't been used before, use it if you need it.
+
+	mutable serializedstudioptr_t< void	> virtualModel;
+	mutable serializedstudioptr_t< void	> animblockModel;
+
+	serializedstudioptr_t< void> pVertexBase;
+	serializedstudioptr_t< void> pIndexBase;
+
+	int reserved[44];
+};

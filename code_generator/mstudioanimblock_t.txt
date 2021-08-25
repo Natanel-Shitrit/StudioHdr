@@ -1,0 +1,7 @@
+// used for piecewise loading of animation data
+struct mstudioanimblock_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					datastart;
+	int					dataend;
+};

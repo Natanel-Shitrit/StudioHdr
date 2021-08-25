@@ -1,0 +1,8 @@
+struct mstudioflexrule_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					flex;
+	int					numops;
+	int					opindex;
+	inline mstudioflexop_t *iFlexOp( int i ) const { return  (mstudioflexop_t *)(((byte *)this) + opindex) + i; };
+};

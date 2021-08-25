@@ -1,0 +1,11 @@
+// attachment
+struct mstudioattachment_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					sznameindex;
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
+	unsigned int		flags;
+	int					localbone;
+	matrix3x4_t			local; // attachment point
+	int					unused[8];
+};

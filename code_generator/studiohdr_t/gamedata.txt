@@ -1,0 +1,488 @@
+"Offsets"
+{
+	"studiohdr_t::id"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"studiohdr_t::version"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"studiohdr_t::checksum"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"studiohdr_t::name"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"studiohdr_t::length"
+	{
+		"windows"	"76"
+		"linux"	"76"
+	}
+
+	"studiohdr_t::eyeposition"
+	{
+		"windows"	"80"
+		"linux"	"80"
+	}
+
+	"studiohdr_t::illumposition"
+	{
+		"windows"	"92"
+		"linux"	"92"
+	}
+
+	"studiohdr_t::hull_min"
+	{
+		"windows"	"104"
+		"linux"	"104"
+	}
+
+	"studiohdr_t::hull_max"
+	{
+		"windows"	"116"
+		"linux"	"116"
+	}
+
+	"studiohdr_t::view_bbmin"
+	{
+		"windows"	"128"
+		"linux"	"128"
+	}
+
+	"studiohdr_t::view_bbmax"
+	{
+		"windows"	"140"
+		"linux"	"140"
+	}
+
+	"studiohdr_t::flags"
+	{
+		"windows"	"152"
+		"linux"	"152"
+	}
+
+	"studiohdr_t::numbones"
+	{
+		"windows"	"156"
+		"linux"	"156"
+	}
+
+	"studiohdr_t::boneindex"
+	{
+		"windows"	"160"
+		"linux"	"160"
+	}
+
+	"studiohdr_t::numbonecontrollers"
+	{
+		"windows"	"164"
+		"linux"	"164"
+	}
+
+	"studiohdr_t::bonecontrollerindex"
+	{
+		"windows"	"168"
+		"linux"	"168"
+	}
+
+	"studiohdr_t::numhitboxsets"
+	{
+		"windows"	"172"
+		"linux"	"172"
+	}
+
+	"studiohdr_t::hitboxsetindex"
+	{
+		"windows"	"176"
+		"linux"	"176"
+	}
+
+	// return|NULL|
+
+	// return|0|
+
+	"studiohdr_t::numlocalanim"
+	{
+		"windows"	"180"
+		"linux"	"180"
+	}
+
+	"studiohdr_t::localanimindex"
+	{
+		"windows"	"184"
+		"linux"	"184"
+	}
+
+	"studiohdr_t::numlocalseq"
+	{
+		"windows"	"188"
+		"linux"	"188"
+	}
+
+	"studiohdr_t::localseqindex"
+	{
+		"windows"	"192"
+		"linux"	"192"
+	}
+
+	// return|numlocalseq|
+
+	// return|relanim|
+
+	// return|relseq|
+
+	"studiohdr_t::activitylistversion"
+	{
+		"windows"	"196"
+		"linux"	"196"
+	}
+
+	"studiohdr_t::eventsindexed"
+	{
+		"windows"	"200"
+		"linux"	"200"
+	}
+
+	"studiohdr_t::numtextures"
+	{
+		"windows"	"204"
+		"linux"	"204"
+	}
+
+	"studiohdr_t::textureindex"
+	{
+		"windows"	"208"
+		"linux"	"208"
+	}
+
+	"studiohdr_t::numcdtextures"
+	{
+		"windows"	"212"
+		"linux"	"212"
+	}
+
+	"studiohdr_t::cdtextureindex"
+	{
+		"windows"	"216"
+		"linux"	"216"
+	}
+
+	"studiohdr_t::numskinref"
+	{
+		"windows"	"220"
+		"linux"	"220"
+	}
+
+	"studiohdr_t::numskinfamilies"
+	{
+		"windows"	"224"
+		"linux"	"224"
+	}
+
+	"studiohdr_t::skinindex"
+	{
+		"windows"	"228"
+		"linux"	"228"
+	}
+
+	"studiohdr_t::numbodyparts"
+	{
+		"windows"	"232"
+		"linux"	"232"
+	}
+
+	"studiohdr_t::bodypartindex"
+	{
+		"windows"	"236"
+		"linux"	"236"
+	}
+
+	"studiohdr_t::numlocalattachments"
+	{
+		"windows"	"240"
+		"linux"	"240"
+	}
+
+	"studiohdr_t::localattachmentindex"
+	{
+		"windows"	"244"
+		"linux"	"244"
+	}
+
+	"studiohdr_t::numlocalnodes"
+	{
+		"windows"	"248"
+		"linux"	"248"
+	}
+
+	"studiohdr_t::localnodeindex"
+	{
+		"windows"	"252"
+		"linux"	"252"
+	}
+
+	"studiohdr_t::localnodenameindex"
+	{
+		"windows"	"256"
+		"linux"	"256"
+	}
+
+	"studiohdr_t::numflexdesc"
+	{
+		"windows"	"260"
+		"linux"	"260"
+	}
+
+	"studiohdr_t::flexdescindex"
+	{
+		"windows"	"264"
+		"linux"	"264"
+	}
+
+	"studiohdr_t::numflexcontrollers"
+	{
+		"windows"	"268"
+		"linux"	"268"
+	}
+
+	"studiohdr_t::flexcontrollerindex"
+	{
+		"windows"	"272"
+		"linux"	"272"
+	}
+
+	"studiohdr_t::numflexrules"
+	{
+		"windows"	"276"
+		"linux"	"276"
+	}
+
+	"studiohdr_t::flexruleindex"
+	{
+		"windows"	"280"
+		"linux"	"280"
+	}
+
+	"studiohdr_t::numikchains"
+	{
+		"windows"	"284"
+		"linux"	"284"
+	}
+
+	"studiohdr_t::ikchainindex"
+	{
+		"windows"	"288"
+		"linux"	"288"
+	}
+
+	"studiohdr_t::nummouths"
+	{
+		"windows"	"292"
+		"linux"	"292"
+	}
+
+	"studiohdr_t::mouthindex"
+	{
+		"windows"	"296"
+		"linux"	"296"
+	}
+
+	"studiohdr_t::numlocalposeparameters"
+	{
+		"windows"	"300"
+		"linux"	"300"
+	}
+
+	"studiohdr_t::localposeparamindex"
+	{
+		"windows"	"304"
+		"linux"	"304"
+	}
+
+	"studiohdr_t::surfacepropindex"
+	{
+		"windows"	"308"
+		"linux"	"308"
+	}
+
+	"studiohdr_t::keyvalueindex"
+	{
+		"windows"	"312"
+		"linux"	"312"
+	}
+
+	"studiohdr_t::keyvaluesize"
+	{
+		"windows"	"316"
+		"linux"	"316"
+	}
+
+	"studiohdr_t::numlocalikautoplaylocks"
+	{
+		"windows"	"320"
+		"linux"	"320"
+	}
+
+	"studiohdr_t::localikautoplaylockindex"
+	{
+		"windows"	"324"
+		"linux"	"324"
+	}
+
+	"studiohdr_t::mass"
+	{
+		"windows"	"328"
+		"linux"	"328"
+	}
+
+	"studiohdr_t::contents"
+	{
+		"windows"	"332"
+		"linux"	"332"
+	}
+
+	"studiohdr_t::numincludemodels"
+	{
+		"windows"	"336"
+		"linux"	"336"
+	}
+
+	"studiohdr_t::includemodelindex"
+	{
+		"windows"	"340"
+		"linux"	"340"
+	}
+
+	"studiohdr_t::unused_virtualModel"
+	{
+		"windows"	"344"
+		"linux"	"344"
+	}
+
+	"studiohdr_t::szanimblocknameindex"
+	{
+		"windows"	"348"
+		"linux"	"348"
+	}
+
+	"studiohdr_t::numanimblocks"
+	{
+		"windows"	"352"
+		"linux"	"352"
+	}
+
+	"studiohdr_t::animblockindex"
+	{
+		"windows"	"356"
+		"linux"	"356"
+	}
+
+	"studiohdr_t::unused_animblockModel"
+	{
+		"windows"	"360"
+		"linux"	"360"
+	}
+
+	"studiohdr_t::bonetablebynameindex"
+	{
+		"windows"	"364"
+		"linux"	"364"
+	}
+
+	"studiohdr_t::unused_pVertexBase"
+	{
+		"windows"	"368"
+		"linux"	"368"
+	}
+
+	"studiohdr_t::unused_pIndexBase"
+	{
+		"windows"	"372"
+		"linux"	"372"
+	}
+
+	"studiohdr_t::constdirectionallightdot"
+	{
+		"windows"	"376"
+		"linux"	"376"
+	}
+
+	"studiohdr_t::rootLOD"
+	{
+		"windows"	"377"
+		"linux"	"377"
+	}
+
+	"studiohdr_t::numAllowedRootLODs"
+	{
+		"windows"	"378"
+		"linux"	"378"
+	}
+
+	"studiohdr_t::unused"
+	{
+		"windows"	"379"
+		"linux"	"379"
+	}
+
+	"studiohdr_t::unused4"
+	{
+		"windows"	"380"
+		"linux"	"380"
+	}
+
+	"studiohdr_t::numflexcontrollerui"
+	{
+		"windows"	"384"
+		"linux"	"384"
+	}
+
+	"studiohdr_t::flexcontrolleruiindex"
+	{
+		"windows"	"388"
+		"linux"	"388"
+	}
+
+	"studiohdr_t::flVertAnimFixedPointScale"
+	{
+		"windows"	"392"
+		"linux"	"392"
+	}
+
+	"studiohdr_t::surfacepropLookup"
+	{
+		"windows"	"396"
+		"linux"	"396"
+	}
+
+	"studiohdr_t::studiohdr2index"
+	{
+		"windows"	"400"
+		"linux"	"400"
+	}
+
+	"studiohdr_t::unused2"
+	{
+		"windows"	"404"
+		"linux"	"404"
+	}
+
+	// struct|virtualmodel_t|
+
+	"sizeof::studiohdr_t"
+	{
+		"windows"	"408"
+		"linux"	"408"
+	}
+}

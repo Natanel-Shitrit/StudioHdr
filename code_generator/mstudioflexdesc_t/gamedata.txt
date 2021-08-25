@@ -1,0 +1,14 @@
+"Offsets"
+{
+	"mstudioflexdesc_t::szFACSindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"sizeof::mstudioflexdesc_t"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+}

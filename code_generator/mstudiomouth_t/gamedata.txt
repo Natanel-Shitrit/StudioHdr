@@ -1,0 +1,26 @@
+"Offsets"
+{
+	"mstudiomouth_t::bone"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiomouth_t::forward"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudiomouth_t::flexdesc"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"sizeof::mstudiomouth_t"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+}

@@ -1,0 +1,38 @@
+"Offsets"
+{
+	"mstudioiklock_t::chain"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioiklock_t::flPosWeight"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioiklock_t::flLocalQWeight"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioiklock_t::flags"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudioiklock_t::unused"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"sizeof::mstudioiklock_t"
+	{
+		"windows"	"32"
+		"linux"	"32"
+	}
+}

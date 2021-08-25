@@ -1,0 +1,10 @@
+struct mstudioiklock_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int			chain;
+	float		flPosWeight;
+	float		flLocalQWeight;
+	int			flags;
+
+	int			unused[4];
+};

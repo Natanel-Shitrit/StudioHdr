@@ -1,0 +1,6 @@
+struct mstudioflexdesc_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					szFACSindex;
+	inline char * const pszFACS( void ) const { return ((char *)this) + szFACSindex; }
+};

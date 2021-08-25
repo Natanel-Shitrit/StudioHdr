@@ -1,0 +1,38 @@
+"Offsets"
+{
+	"mstudioflexcontroller_t::sztypeindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioflexcontroller_t::sznameindex"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioflexcontroller_t::localToGlobal"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioflexcontroller_t::min"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudioflexcontroller_t::max"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"sizeof::mstudioflexcontroller_t"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+}

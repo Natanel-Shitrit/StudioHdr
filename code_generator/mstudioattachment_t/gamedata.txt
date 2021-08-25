@@ -1,0 +1,38 @@
+"Offsets"
+{
+	"mstudioattachment_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioattachment_t::flags"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioattachment_t::localbone"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioattachment_t::local"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudioattachment_t::unused"
+	{
+		"windows"	"60"
+		"linux"	"60"
+	}
+
+	"sizeof::mstudioattachment_t"
+	{
+		"windows"	"92"
+		"linux"	"92"
+	}
+}

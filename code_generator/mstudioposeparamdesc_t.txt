@@ -1,0 +1,10 @@
+struct mstudioposeparamdesc_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					sznameindex;
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
+	int					flags;	// ????
+	float				start;	// starting value
+	float				end;	// ending value
+	float				loop;	// looping range, 0 for no looping, 360 for rotations, etc.
+};
