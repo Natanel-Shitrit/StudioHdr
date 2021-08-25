@@ -1,0 +1,32 @@
+"Offsets"
+{
+	"mstudiobodyparts_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiobodyparts_t::nummodels"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudiobodyparts_t::base"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudiobodyparts_t::modelindex"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"sizeof::mstudiobodyparts_t"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+}

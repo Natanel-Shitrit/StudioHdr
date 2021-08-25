@@ -1,0 +1,26 @@
+"Offsets"
+{
+	"mstudiohitboxset_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiohitboxset_t::numhitboxes"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudiohitboxset_t::hitboxindex"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"sizeof::mstudiohitboxset_t"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+}

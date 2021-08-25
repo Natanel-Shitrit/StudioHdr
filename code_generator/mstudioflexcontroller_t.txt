@@ -1,0 +1,11 @@
+struct mstudioflexcontroller_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					sztypeindex;
+	inline char * const pszType( void ) const { return ((char *)this) + sztypeindex; }
+	int					sznameindex;
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
+	mutable int			localToGlobal;	// remapped at load time to master list
+	float				min;
+	float				max;
+};

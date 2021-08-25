@@ -1,0 +1,22 @@
+// skin info
+struct mstudiotexture_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int						sznameindex;
+	inline char * const		pszName( void ) const { return ((char *)this) + sznameindex; }
+	int						flags;
+	int						used;
+    int						unused1;
+
+#ifdef PLATFORM_64BITS
+	//Having pointers in here really messes up 64 bit. these are only used
+	//on by studiomdl though, will need to figure this out if we want
+	//to port studiomdl to 64 bit.
+	int						unused[12];
+#else
+	mutable IMaterial		*material;  // fixme: this needs to go away . .isn't used by the engine, but is used by studiomdl
+	mutable void			*clientmaterial;	// gary, replace with client material pointer if used
+	int						unused[10];
+#endif
+	
+};

@@ -1,0 +1,55 @@
+struct mstudioanimdesc_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					baseptr; 				// 0 (+4)
+	inline studiohdr_t	*pStudiohdr( void ) const { return (studiohdr_t *)(((byte *)this) + baseptr); }
+
+	int					sznameindex; 			// 4 (+4)
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
+	
+	float				fps;					// 8 (+4) // frames per second	
+	int					flags;					// 12 (+4) // looping/non-looping flags
+
+	int					numframes;				// 16 (+4)
+
+	// piecewise movement
+	int					nummovements;			// 20 (+4)
+	int					movementindex;			// 24 (+4)
+	inline mstudiomovement_t * const pMovement( int i ) const { return (mstudiomovement_t *)(((byte *)this) + movementindex) + i; };
+
+	int					ikrulezeroframeindex;	// 28 (+4)
+	mstudioikrulezeroframe_t *pIKRuleZeroFrame( int i ) const { if (ikrulezeroframeindex) return (mstudioikrulezeroframe_t *)(((byte *)this) + ikrulezeroframeindex) + i; else return NULL; };
+
+	int					unused1[5];				// 32 (+20) // remove as appropriate (and zero if loading older versions)	
+
+	int					animblock;				// 52 (+4)
+	int					animindex;	 			// 56 (+4) // non-zero when anim data isn't in sections
+	byte *pAnimBlock( int block, int index, bool preloadIfMissing = true) const; // returns pointer to a specific anim block (local or external)
+	bool hasAnimBlockBeenPreloaded( int block ) const;
+	byte *pAnim( int *piFrame, float &flStall ) const; // returns pointer to data and new frame index
+	byte *pAnim( int *piFrame ) const; // returns pointer to data and new frame index
+
+	int					numikrules;				// 60 (+4)
+	int					ikruleindex;			// 64 (+4) // non-zero when IK rule is stored in the mdl
+	int					animblockikruleindex; 	// 68 (+4) // non-zero when IK data is stored in animblock file
+	mstudioikrule_t *pIKRule( int i ) const;
+
+	int					numlocalhierarchy;		// 72 (+4)
+	int					localhierarchyindex;	// 76 (+4)
+	mstudiolocalhierarchy_t *pHierarchy( int i ) const;
+
+	int					sectionindex;			// 80 (+4)
+	int					sectionframes; 			// 84 (+4) // number of frames used in each fast lookup section, zero if not used
+	inline mstudioanimsections_t * const pSection( int i ) const { return (mstudioanimsections_t *)(((byte *)this) + sectionindex) + i; }
+
+	short				zeroframespan;			// 88 (+2) // frames per span
+	short				zeroframecount; 		// 90 (+2) // number of spans
+	int					zeroframeindex;			// 92 (+4)
+	byte				*pZeroFrameData( ) const { if (zeroframeindex) return (((byte *)this) + zeroframeindex); else return NULL; };
+	mutable float		zeroframestalltime;		// 96 (+4) // saved during read stalls
+												// size 100
+	mstudioanimdesc_t(){}
+private:
+	// No copy constructors allowed
+	mstudioanimdesc_t(const mstudioanimdesc_t& vOther);
+};

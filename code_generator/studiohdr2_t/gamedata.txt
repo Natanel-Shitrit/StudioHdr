@@ -1,0 +1,80 @@
+"Offsets"
+{
+	"studiohdr2_t::numsrcbonetransform"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"studiohdr2_t::srcbonetransformindex"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"studiohdr2_t::illumpositionattachmentindex"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"studiohdr2_t::flMaxEyeDeflection"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"studiohdr2_t::linearboneindex"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"studiohdr2_t::sznameindex"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+
+	"studiohdr2_t::m_nBoneFlexDriverCount"
+	{
+		"windows"	"24"
+		"linux"	"24"
+	}
+
+	"studiohdr2_t::m_nBoneFlexDriverIndex"
+	{
+		"windows"	"28"
+		"linux"	"28"
+	}
+
+	"studiohdr2_t::m_nBodyGroupPresetCount"
+	{
+		"windows"	"32"
+		"linux"	"32"
+	}
+
+	"studiohdr2_t::m_nBodyGroupPresetIndex"
+	{
+		"windows"	"36"
+		"linux"	"36"
+	}
+
+	"studiohdr2_t::padding_unused"
+	{
+		"windows"	"40"
+		"linux"	"40"
+	}
+
+	"studiohdr2_t::reserved"
+	{
+		"windows"	"44"
+		"linux"	"44"
+	}
+
+	"sizeof::studiohdr2_t"
+	{
+		"windows"	"220"
+		"linux"	"220"
+	}
+}

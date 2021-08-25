@@ -1,0 +1,140 @@
+"Offsets"
+{
+	"mstudioanimdesc_t::baseptr"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioanimdesc_t::sznameindex"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioanimdesc_t::fps"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioanimdesc_t::flags"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudioanimdesc_t::numframes"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"mstudioanimdesc_t::nummovements"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+
+	"mstudioanimdesc_t::movementindex"
+	{
+		"windows"	"24"
+		"linux"	"24"
+	}
+
+	"mstudioanimdesc_t::ikrulezeroframeindex"
+	{
+		"windows"	"28"
+		"linux"	"28"
+	}
+
+	"mstudioanimdesc_t::unused1"
+	{
+		"windows"	"32"
+		"linux"	"32"
+	}
+
+	"mstudioanimdesc_t::animblock"
+	{
+		"windows"	"52"
+		"linux"	"52"
+	}
+
+	"mstudioanimdesc_t::animindex"
+	{
+		"windows"	"56"
+		"linux"	"56"
+	}
+
+	"mstudioanimdesc_t::numikrules"
+	{
+		"windows"	"60"
+		"linux"	"60"
+	}
+
+	"mstudioanimdesc_t::ikruleindex"
+	{
+		"windows"	"64"
+		"linux"	"64"
+	}
+
+	"mstudioanimdesc_t::animblockikruleindex"
+	{
+		"windows"	"68"
+		"linux"	"68"
+	}
+
+	"mstudioanimdesc_t::numlocalhierarchy"
+	{
+		"windows"	"72"
+		"linux"	"72"
+	}
+
+	"mstudioanimdesc_t::localhierarchyindex"
+	{
+		"windows"	"76"
+		"linux"	"76"
+	}
+
+	"mstudioanimdesc_t::sectionindex"
+	{
+		"windows"	"80"
+		"linux"	"80"
+	}
+
+	"mstudioanimdesc_t::sectionframes"
+	{
+		"windows"	"84"
+		"linux"	"84"
+	}
+
+	"mstudioanimdesc_t::zeroframespan"
+	{
+		"windows"	"88"
+		"linux"	"88"
+	}
+
+	"mstudioanimdesc_t::zeroframecount"
+	{
+		"windows"	"90"
+		"linux"	"90"
+	}
+
+	"mstudioanimdesc_t::zeroframeindex"
+	{
+		"windows"	"92"
+		"linux"	"92"
+	}
+
+	"mstudioanimdesc_t::zeroframestalltime"
+	{
+		"windows"	"96"
+		"linux"	"96"
+	}
+
+	"sizeof::mstudioanimdesc_t"
+	{
+		"windows"	"100"
+		"linux"	"100"
+	}
+}

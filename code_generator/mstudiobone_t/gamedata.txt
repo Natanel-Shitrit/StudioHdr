@@ -1,0 +1,116 @@
+"Offsets"
+{
+	"mstudiobone_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiobone_t::parent"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudiobone_t::bonecontroller"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudiobone_t::pos"
+	{
+		"windows"	"32"
+		"linux"	"32"
+	}
+
+	"mstudiobone_t::quat"
+	{
+		"windows"	"44"
+		"linux"	"44"
+	}
+
+	"mstudiobone_t::rot"
+	{
+		"windows"	"60"
+		"linux"	"60"
+	}
+
+	"mstudiobone_t::posscale"
+	{
+		"windows"	"72"
+		"linux"	"72"
+	}
+
+	"mstudiobone_t::rotscale"
+	{
+		"windows"	"84"
+		"linux"	"84"
+	}
+
+	"mstudiobone_t::poseToBone"
+	{
+		"windows"	"96"
+		"linux"	"96"
+	}
+
+	"mstudiobone_t::qAlignment"
+	{
+		"windows"	"144"
+		"linux"	"144"
+	}
+
+	"mstudiobone_t::flags"
+	{
+		"windows"	"160"
+		"linux"	"160"
+	}
+
+	"mstudiobone_t::proctype"
+	{
+		"windows"	"164"
+		"linux"	"164"
+	}
+
+	"mstudiobone_t::procindex"
+	{
+		"windows"	"168"
+		"linux"	"168"
+	}
+
+	"mstudiobone_t::physicsbone"
+	{
+		"windows"	"172"
+		"linux"	"172"
+	}
+
+	"mstudiobone_t::surfacepropidx"
+	{
+		"windows"	"176"
+		"linux"	"176"
+	}
+
+	"mstudiobone_t::contents"
+	{
+		"windows"	"180"
+		"linux"	"180"
+	}
+
+	"mstudiobone_t::surfacepropLookup"
+	{
+		"windows"	"184"
+		"linux"	"184"
+	}
+
+	"mstudiobone_t::unused"
+	{
+		"windows"	"188"
+		"linux"	"188"
+	}
+
+	"sizeof::mstudiobone_t"
+	{
+		"windows"	"216"
+		"linux"	"216"
+	}
+}

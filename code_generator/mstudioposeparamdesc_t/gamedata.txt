@@ -1,0 +1,38 @@
+"Offsets"
+{
+	"mstudioposeparamdesc_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioposeparamdesc_t::flags"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioposeparamdesc_t::start"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioposeparamdesc_t::end"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudioposeparamdesc_t::loop"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"sizeof::mstudioposeparamdesc_t"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+}

@@ -1,0 +1,27 @@
+// intersection boxes
+struct mstudiobbox_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					bone;					// 0 (+ 4)	
+	int					group;					// 4 (+ 4)	// intersection group
+	Vector				bbmin;					// 8 (+ 12)	// bounding box, or the ends of the capsule if flCapsuleRadius > 0 
+	Vector				bbmax;					// 20(+ 12)	
+	int					szhitboxnameindex;		// 32(+ 4) 	// offset to the name of the hitbox.
+	QAngle				angOffsetOrientation;	// 36(+ 12)
+	float				flCapsuleRadius;		// 48(+ 4)
+	int32				unused[4];				// 52(+ 16)
+
+	const char* pszHitboxName() const
+	{
+		if( szhitboxnameindex == 0 )
+			return "";
+
+		return ((const char*)this) + szhitboxnameindex;
+	}
+
+	mstudiobbox_t() {}
+
+private:
+	// No copy constructors allowed
+	mstudiobbox_t(const mstudiobbox_t& vOther);
+};

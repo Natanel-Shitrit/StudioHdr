@@ -1,0 +1,9 @@
+// demand loaded sequence groups
+struct mstudiomodelgroup_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					szlabelindex;	// textual name
+	inline char * const pszLabel( void ) const { return ((char *)this) + szlabelindex; }
+	int					sznameindex;	// file name
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
+};

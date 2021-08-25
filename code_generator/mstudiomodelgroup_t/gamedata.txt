@@ -1,0 +1,20 @@
+"Offsets"
+{
+	"mstudiomodelgroup_t::szlabelindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiomodelgroup_t::sznameindex"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"sizeof::mstudiomodelgroup_t"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+}

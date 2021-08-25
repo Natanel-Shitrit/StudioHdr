@@ -1,0 +1,32 @@
+"Offsets"
+{
+	"mstudioikchain_t::sznameindex"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioikchain_t::linktype"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioikchain_t::numlinks"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioikchain_t::linkindex"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"sizeof::mstudioikchain_t"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+}

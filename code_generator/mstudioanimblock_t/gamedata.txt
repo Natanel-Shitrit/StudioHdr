@@ -1,0 +1,20 @@
+"Offsets"
+{
+	"mstudioanimblock_t::datastart"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioanimblock_t::dataend"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"sizeof::mstudioanimblock_t"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+}

@@ -1,0 +1,50 @@
+"Offsets"
+{
+	"mstudiobonecontroller_t::bone"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiobonecontroller_t::type"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudiobonecontroller_t::start"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudiobonecontroller_t::end"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudiobonecontroller_t::rest"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"mstudiobonecontroller_t::inputfield"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+
+	"mstudiobonecontroller_t::unused"
+	{
+		"windows"	"24"
+		"linux"	"24"
+	}
+
+	"sizeof::mstudiobonecontroller_t"
+	{
+		"windows"	"56"
+		"linux"	"56"
+	}
+}

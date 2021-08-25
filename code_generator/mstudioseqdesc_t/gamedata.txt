@@ -1,0 +1,274 @@
+"Offsets"
+{
+	"mstudioseqdesc_t::baseptr"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudioseqdesc_t::szlabelindex"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudioseqdesc_t::szactivitynameindex"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudioseqdesc_t::flags"
+	{
+		"windows"	"12"
+		"linux"	"12"
+	}
+
+	"mstudioseqdesc_t::activity"
+	{
+		"windows"	"16"
+		"linux"	"16"
+	}
+
+	"mstudioseqdesc_t::actweight"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+
+	"mstudioseqdesc_t::numevents"
+	{
+		"windows"	"24"
+		"linux"	"24"
+	}
+
+	"mstudioseqdesc_t::eventindex"
+	{
+		"windows"	"28"
+		"linux"	"28"
+	}
+
+	"mstudioseqdesc_t::bbmin"
+	{
+		"windows"	"32"
+		"linux"	"32"
+	}
+
+	"mstudioseqdesc_t::bbmax"
+	{
+		"windows"	"44"
+		"linux"	"44"
+	}
+
+	"mstudioseqdesc_t::numblends"
+	{
+		"windows"	"56"
+		"linux"	"56"
+	}
+
+	"mstudioseqdesc_t::animindexindex"
+	{
+		"windows"	"60"
+		"linux"	"60"
+	}
+
+	// return|value|
+
+	"mstudioseqdesc_t::movementindex"
+	{
+		"windows"	"64"
+		"linux"	"64"
+	}
+
+	"mstudioseqdesc_t::groupsize"
+	{
+		"windows"	"68"
+		"linux"	"68"
+	}
+
+	"mstudioseqdesc_t::paramindex"
+	{
+		"windows"	"76"
+		"linux"	"76"
+	}
+
+	"mstudioseqdesc_t::paramstart"
+	{
+		"windows"	"84"
+		"linux"	"84"
+	}
+
+	"mstudioseqdesc_t::paramend"
+	{
+		"windows"	"92"
+		"linux"	"92"
+	}
+
+	"mstudioseqdesc_t::paramparent"
+	{
+		"windows"	"100"
+		"linux"	"100"
+	}
+
+	"mstudioseqdesc_t::fadeintime"
+	{
+		"windows"	"104"
+		"linux"	"104"
+	}
+
+	"mstudioseqdesc_t::fadeouttime"
+	{
+		"windows"	"108"
+		"linux"	"108"
+	}
+
+	"mstudioseqdesc_t::localentrynode"
+	{
+		"windows"	"112"
+		"linux"	"112"
+	}
+
+	"mstudioseqdesc_t::localexitnode"
+	{
+		"windows"	"116"
+		"linux"	"116"
+	}
+
+	"mstudioseqdesc_t::nodeflags"
+	{
+		"windows"	"120"
+		"linux"	"120"
+	}
+
+	"mstudioseqdesc_t::entryphase"
+	{
+		"windows"	"124"
+		"linux"	"124"
+	}
+
+	"mstudioseqdesc_t::exitphase"
+	{
+		"windows"	"128"
+		"linux"	"128"
+	}
+
+	"mstudioseqdesc_t::lastframe"
+	{
+		"windows"	"132"
+		"linux"	"132"
+	}
+
+	"mstudioseqdesc_t::nextseq"
+	{
+		"windows"	"136"
+		"linux"	"136"
+	}
+
+	"mstudioseqdesc_t::pose"
+	{
+		"windows"	"140"
+		"linux"	"140"
+	}
+
+	"mstudioseqdesc_t::numikrules"
+	{
+		"windows"	"144"
+		"linux"	"144"
+	}
+
+	"mstudioseqdesc_t::numautolayers"
+	{
+		"windows"	"148"
+		"linux"	"148"
+	}
+
+	"mstudioseqdesc_t::autolayerindex"
+	{
+		"windows"	"152"
+		"linux"	"152"
+	}
+
+	"mstudioseqdesc_t::weightlistindex"
+	{
+		"windows"	"156"
+		"linux"	"156"
+	}
+
+	"mstudioseqdesc_t::posekeyindex"
+	{
+		"windows"	"160"
+		"linux"	"160"
+	}
+
+	"mstudioseqdesc_t::numiklocks"
+	{
+		"windows"	"164"
+		"linux"	"164"
+	}
+
+	"mstudioseqdesc_t::iklockindex"
+	{
+		"windows"	"168"
+		"linux"	"168"
+	}
+
+	"mstudioseqdesc_t::keyvalueindex"
+	{
+		"windows"	"172"
+		"linux"	"172"
+	}
+
+	"mstudioseqdesc_t::keyvaluesize"
+	{
+		"windows"	"176"
+		"linux"	"176"
+	}
+
+	"mstudioseqdesc_t::cycleposeindex"
+	{
+		"windows"	"180"
+		"linux"	"180"
+	}
+
+	"mstudioseqdesc_t::activitymodifierindex"
+	{
+		"windows"	"184"
+		"linux"	"184"
+	}
+
+	"mstudioseqdesc_t::numactivitymodifiers"
+	{
+		"windows"	"188"
+		"linux"	"188"
+	}
+
+	"mstudioseqdesc_t::animtagindex"
+	{
+		"windows"	"192"
+		"linux"	"192"
+	}
+
+	"mstudioseqdesc_t::numanimtags"
+	{
+		"windows"	"196"
+		"linux"	"196"
+	}
+
+	"mstudioseqdesc_t::rootDriverIndex"
+	{
+		"windows"	"200"
+		"linux"	"200"
+	}
+
+	"mstudioseqdesc_t::unused"
+	{
+		"windows"	"204"
+		"linux"	"204"
+	}
+
+	"sizeof::mstudioseqdesc_t"
+	{
+		"windows"	"212"
+		"linux"	"212"
+	}
+}

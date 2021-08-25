@@ -1,0 +1,11 @@
+// body part index
+struct mstudiobodyparts_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					sznameindex;
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
+	int					nummodels;
+	int					base;
+	int					modelindex; // index into models array
+	inline mstudiomodel_t *pModel( int i ) const { return (mstudiomodel_t *)(((byte *)this) + modelindex) + i; };
+};

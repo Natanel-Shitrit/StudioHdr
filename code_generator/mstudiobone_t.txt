@@ -1,0 +1,37 @@
+// bones
+struct mstudiobone_t
+{
+	DECLARE_BYTESWAP_DATADESC();
+	int					sznameindex;		// 0 (+4)
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
+	int		 			parent;				// 4 (+4) // parent bone
+	int					bonecontroller[6];	// 8 (+24)	// bone controller index, -1 == none
+
+	// default values
+	Vector				pos;				// 32 (+12)
+	Quaternion			quat;				// 44 (+16)
+	RadianEuler			rot;				// 60 (+12)
+	// compression scale
+	Vector				posscale;			// 72 (+12)
+	Vector				rotscale;			// 84 (+12)
+
+	matrix3x4_t			poseToBone;			// 96 (+48)
+	Quaternion			qAlignment;			// 144 (+16)
+	int					flags;				// 160 (+4)
+	int					proctype;			// 164 (+4)
+	int					procindex;			// 168 (+4) // procedural rule
+	mutable int			physicsbone;		// 172 (+4) // index into physically simulated bone
+	inline void *pProcedure( ) const { if (procindex == 0) return NULL; else return  (void *)(((byte *)this) + procindex); };
+	int					surfacepropidx;		// 176 (+4) // index into string tablefor property name
+	inline char * const pszSurfaceProp( void ) const { return ((char *)this) + surfacepropidx; }
+	inline int			GetSurfaceProp( void ) const { return surfacepropLookup; }
+
+	int					contents;			// 180 (+4) // See BSPFlags.h for the contents flags
+	int					surfacepropLookup;	// 184 (+4)// this index must be cached by the loader, not saved in the file
+	int					unused[7];			// 188 (+28) // remove as appropriate
+											// size = 216
+	mstudiobone_t(){}
+private:
+	// No copy constructors allowed
+	mstudiobone_t(const mstudiobone_t& vOther);
+};

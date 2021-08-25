@@ -1,0 +1,56 @@
+"Offsets"
+{
+	"mstudiobbox_t::bone"
+	{
+		"windows"	"0"
+		"linux"	"0"
+	}
+
+	"mstudiobbox_t::group"
+	{
+		"windows"	"4"
+		"linux"	"4"
+	}
+
+	"mstudiobbox_t::bbmin"
+	{
+		"windows"	"8"
+		"linux"	"8"
+	}
+
+	"mstudiobbox_t::bbmax"
+	{
+		"windows"	"20"
+		"linux"	"20"
+	}
+
+	"mstudiobbox_t::szhitboxnameindex"
+	{
+		"windows"	"32"
+		"linux"	"32"
+	}
+
+	"mstudiobbox_t::angOffsetOrientation"
+	{
+		"windows"	"36"
+		"linux"	"36"
+	}
+
+	"mstudiobbox_t::flCapsuleRadius"
+	{
+		"windows"	"48"
+		"linux"	"48"
+	}
+
+	"mstudiobbox_t::unused"
+	{
+		"windows"	"52"
+		"linux"	"52"
+	}
+
+	"sizeof::mstudiobbox_t"
+	{
+		"windows"	"68"
+		"linux"	"68"
+	}
+}
