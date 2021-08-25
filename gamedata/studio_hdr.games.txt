@@ -1,18 +1,18 @@
-//	StudioHdr is a SourcePawn library (.inc) that lets developers get information about entity models.
-//	Copyright (C) 2021  Natanel 'LuqS' Shitrit
+//    StudioHdr is a SourcePawn library (.inc) that lets developers get information about entity models.
+//    Copyright (C) 2021  Natanel 'LuqS' Shitrit
 
-//	This program is free software: you can redistribute it and/or modify
-//	it under the terms of the GNU General Public License as published by
-//	the Free Software Foundation, either version 3 of the License, or
-//	(at your option) any later version.
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
 
-//	This program is distributed in the hope that it will be useful,
-//	but WITHOUT ANY WARRANTY; without even the implied warranty of
-//	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//	GNU General Public License for more details.
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
 
-//	You should have received a copy of the GNU General Public License
-//	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 "Games"
 {
@@ -22,22 +22,1588 @@
         {
             "ModelSoundsCache_LoadModel"
             {
-                "library"	"server"
+                "library"    "server"
                 "windows"   "\x8B\xD1\x8B\x0D\x2A\x2A\x2A\x2A\x56"
-                "linux"		"\x55\x89\xE5\x56\x53\x83\xEC\x10\xA1\x2A\x2A\x2A\x2A\x8B\x4D\x08"
+                "linux"        "\x55\x89\xE5\x56\x53\x83\xEC\x10\xA1\x2A\x2A\x2A\x2A\x8B\x4D\x08"
             }
 
             "ModelSoundsCache_FinishModel"
             {
-                "library"	"server"
+                "library"    "server"
                 "windows"   "\x51\x56\x57\x8B\xF9\x8B\x4F\x08"
-                "linux"		"\x55\x89\xE5\x56\x53\x83\xEC\x20\x8B\x5D\x08\x85\xDB"
+                "linux"        "\x55\x89\xE5\x56\x53\x83\xEC\x20\x8B\x5D\x08\x85\xDB"
             }
         }
 
         "Offsets"
         {
+            // studiohdr_t
 
+            "studiohdr_t::id"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "studiohdr_t::version"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "studiohdr_t::checksum"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "studiohdr_t::name"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "studiohdr_t::length"
+            {
+                "windows"  "76"
+                "linux"    "76"
+            }
+
+            "studiohdr_t::eyeposition"
+            {
+                "windows"  "80"
+                "linux"    "80"
+            }
+
+            "studiohdr_t::illumposition"
+            {
+                "windows"  "92"
+                "linux"    "92"
+            }
+
+            "studiohdr_t::hull_min"
+            {
+                "windows"  "104"
+                "linux"    "104"
+            }
+
+            "studiohdr_t::hull_max"
+            {
+                "windows"  "116"
+                "linux"    "116"
+            }
+
+            "studiohdr_t::view_bbmin"
+            {
+                "windows"  "128"
+                "linux"    "128"
+            }
+
+            "studiohdr_t::view_bbmax"
+            {
+                "windows"  "140"
+                "linux"    "140"
+            }
+
+            "studiohdr_t::flags"
+            {
+                "windows"  "152"
+                "linux"    "152"
+            }
+
+            "studiohdr_t::numbones"
+            {
+                "windows"  "156"
+                "linux"    "156"
+            }
+
+            "studiohdr_t::boneindex"
+            {
+                "windows"  "160"
+                "linux"    "160"
+            }
+
+            "studiohdr_t::numbonecontrollers"
+            {
+                "windows"  "164"
+                "linux"    "164"
+            }
+
+            "studiohdr_t::bonecontrollerindex"
+            {
+                "windows"  "168"
+                "linux"    "168"
+            }
+
+            "studiohdr_t::numhitboxsets"
+            {
+                "windows"  "172"
+                "linux"    "172"
+            }
+
+            "studiohdr_t::hitboxsetindex"
+            {
+                "windows"  "176"
+                "linux"    "176"
+            }
+
+            // return|NULL|
+
+            // return|0|
+
+            "studiohdr_t::numlocalanim"
+            {
+                "windows"  "180"
+                "linux"    "180"
+            }
+
+            "studiohdr_t::localanimindex"
+            {
+                "windows"  "184"
+                "linux"    "184"
+            }
+
+            "studiohdr_t::numlocalseq"
+            {
+                "windows"  "188"
+                "linux"    "188"
+            }
+
+            "studiohdr_t::localseqindex"
+            {
+                "windows"  "192"
+                "linux"    "192"
+            }
+
+            // return|numlocalseq|
+
+            // return|relanim|
+
+            // return|relseq|
+
+            "studiohdr_t::activitylistversion"
+            {
+                "windows"  "196"
+                "linux"    "196"
+            }
+
+            "studiohdr_t::eventsindexed"
+            {
+                "windows"  "200"
+                "linux"    "200"
+            }
+
+            "studiohdr_t::numtextures"
+            {
+                "windows"  "204"
+                "linux"    "204"
+            }
+
+            "studiohdr_t::textureindex"
+            {
+                "windows"  "208"
+                "linux"    "208"
+            }
+
+            "studiohdr_t::numcdtextures"
+            {
+                "windows"  "212"
+                "linux"    "212"
+            }
+
+            "studiohdr_t::cdtextureindex"
+            {
+                "windows"  "216"
+                "linux"    "216"
+            }
+
+            "studiohdr_t::numskinref"
+            {
+                "windows"  "220"
+                "linux"    "220"
+            }
+
+            "studiohdr_t::numskinfamilies"
+            {
+                "windows"  "224"
+                "linux"    "224"
+            }
+
+            "studiohdr_t::skinindex"
+            {
+                "windows"  "228"
+                "linux"    "228"
+            }
+
+            "studiohdr_t::numbodyparts"
+            {
+                "windows"  "232"
+                "linux"    "232"
+            }
+
+            "studiohdr_t::bodypartindex"
+            {
+                "windows"  "236"
+                "linux"    "236"
+            }
+
+            "studiohdr_t::numlocalattachments"
+            {
+                "windows"  "240"
+                "linux"    "240"
+            }
+
+            "studiohdr_t::localattachmentindex"
+            {
+                "windows"  "244"
+                "linux"    "244"
+            }
+
+            "studiohdr_t::numlocalnodes"
+            {
+                "windows"  "248"
+                "linux"    "248"
+            }
+
+            "studiohdr_t::localnodeindex"
+            {
+                "windows"  "252"
+                "linux"    "252"
+            }
+
+            "studiohdr_t::localnodenameindex"
+            {
+                "windows"  "256"
+                "linux"    "256"
+            }
+
+            "studiohdr_t::numflexdesc"
+            {
+                "windows"  "260"
+                "linux"    "260"
+            }
+
+            "studiohdr_t::flexdescindex"
+            {
+                "windows"  "264"
+                "linux"    "264"
+            }
+
+            "studiohdr_t::numflexcontrollers"
+            {
+                "windows"  "268"
+                "linux"    "268"
+            }
+
+            "studiohdr_t::flexcontrollerindex"
+            {
+                "windows"  "272"
+                "linux"    "272"
+            }
+
+            "studiohdr_t::numflexrules"
+            {
+                "windows"  "276"
+                "linux"    "276"
+            }
+
+            "studiohdr_t::flexruleindex"
+            {
+                "windows"  "280"
+                "linux"    "280"
+            }
+
+            "studiohdr_t::numikchains"
+            {
+                "windows"  "284"
+                "linux"    "284"
+            }
+
+            "studiohdr_t::ikchainindex"
+            {
+                "windows"  "288"
+                "linux"    "288"
+            }
+
+            "studiohdr_t::nummouths"
+            {
+                "windows"  "292"
+                "linux"    "292"
+            }
+
+            "studiohdr_t::mouthindex"
+            {
+                "windows"  "296"
+                "linux"    "296"
+            }
+
+            "studiohdr_t::numlocalposeparameters"
+            {
+                "windows"  "300"
+                "linux"    "300"
+            }
+
+            "studiohdr_t::localposeparamindex"
+            {
+                "windows"  "304"
+                "linux"    "304"
+            }
+
+            "studiohdr_t::surfacepropindex"
+            {
+                "windows"  "308"
+                "linux"    "308"
+            }
+
+            "studiohdr_t::keyvalueindex"
+            {
+                "windows"  "312"
+                "linux"    "312"
+            }
+
+            "studiohdr_t::keyvaluesize"
+            {
+                "windows"  "316"
+                "linux"    "316"
+            }
+
+            "studiohdr_t::numlocalikautoplaylocks"
+            {
+                "windows"  "320"
+                "linux"    "320"
+            }
+
+            "studiohdr_t::localikautoplaylockindex"
+            {
+                "windows"  "324"
+                "linux"    "324"
+            }
+
+            "studiohdr_t::mass"
+            {
+                "windows"  "328"
+                "linux"    "328"
+            }
+
+            "studiohdr_t::contents"
+            {
+                "windows"  "332"
+                "linux"    "332"
+            }
+
+            "studiohdr_t::numincludemodels"
+            {
+                "windows"  "336"
+                "linux"    "336"
+            }
+
+            "studiohdr_t::includemodelindex"
+            {
+                "windows"  "340"
+                "linux"    "340"
+            }
+
+            "studiohdr_t::szanimblocknameindex"
+            {
+                "windows"  "348"
+                "linux"    "348"
+            }
+
+            "studiohdr_t::numanimblocks"
+            {
+                "windows"  "352"
+                "linux"    "352"
+            }
+
+            "studiohdr_t::animblockindex"
+            {
+                "windows"  "356"
+                "linux"    "356"
+            }
+
+            "studiohdr_t::bonetablebynameindex"
+            {
+                "windows"  "364"
+                "linux"    "364"
+            }
+
+            "studiohdr_t::constdirectionallightdot"
+            {
+                "windows"  "376"
+                "linux"    "376"
+            }
+
+            "studiohdr_t::rootLOD"
+            {
+                "windows"  "377"
+                "linux"    "377"
+            }
+
+            "studiohdr_t::numAllowedRootLODs"
+            {
+                "windows"  "378"
+                "linux"    "378"
+            }
+
+            "studiohdr_t::numflexcontrollerui"
+            {
+                "windows"  "384"
+                "linux"    "384"
+            }
+
+            "studiohdr_t::flexcontrolleruiindex"
+            {
+                "windows"  "388"
+                "linux"    "388"
+            }
+
+            "studiohdr_t::flVertAnimFixedPointScale"
+            {
+                "windows"  "392"
+                "linux"    "392"
+            }
+
+            "studiohdr_t::surfacepropLookup"
+            {
+                "windows"  "396"
+                "linux"    "396"
+            }
+
+            "studiohdr_t::studiohdr2index"
+            {
+                "windows"  "400"
+                "linux"    "400"
+            }
+
+            // struct|virtualmodel_t|
+
+            "sizeof::studiohdr_t"
+            {
+                "windows"  "408"
+                "linux"    "408"
+            }
+
+            // mstudiobone_t
+
+            "mstudiobone_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiobone_t::parent"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudiobone_t::bonecontroller"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudiobone_t::pos"
+            {
+                "windows"  "32"
+                "linux"    "32"
+            }
+
+            "mstudiobone_t::quat"
+            {
+                "windows"  "44"
+                "linux"    "44"
+            }
+
+            "mstudiobone_t::rot"
+            {
+                "windows"  "60"
+                "linux"    "60"
+            }
+
+            "mstudiobone_t::posscale"
+            {
+                "windows"  "72"
+                "linux"    "72"
+            }
+
+            "mstudiobone_t::rotscale"
+            {
+                "windows"  "84"
+                "linux"    "84"
+            }
+
+            "mstudiobone_t::poseToBone"
+            {
+                "windows"  "96"
+                "linux"    "96"
+            }
+
+            "mstudiobone_t::qAlignment"
+            {
+                "windows"  "144"
+                "linux"    "144"
+            }
+
+            "mstudiobone_t::flags"
+            {
+                "windows"  "160"
+                "linux"    "160"
+            }
+
+            "mstudiobone_t::proctype"
+            {
+                "windows"  "164"
+                "linux"    "164"
+            }
+
+            "mstudiobone_t::procindex"
+            {
+                "windows"  "168"
+                "linux"    "168"
+            }
+
+            "mstudiobone_t::physicsbone"
+            {
+                "windows"  "172"
+                "linux"    "172"
+            }
+
+            "mstudiobone_t::surfacepropidx"
+            {
+                "windows"  "176"
+                "linux"    "176"
+            }
+
+            "mstudiobone_t::contents"
+            {
+                "windows"  "180"
+                "linux"    "180"
+            }
+
+            "mstudiobone_t::surfacepropLookup"
+            {
+                "windows"  "184"
+                "linux"    "184"
+            }
+
+            "sizeof::mstudiobone_t"
+            {
+                "windows"  "216"
+                "linux"    "216"
+            }
+
+            // mstudiobbox_t
+
+            "mstudiobbox_t::bone"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiobbox_t::group"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudiobbox_t::bbmin"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudiobbox_t::bbmax"
+            {
+                "windows"  "20"
+                "linux"    "20"
+            }
+
+            "mstudiobbox_t::szhitboxnameindex"
+            {
+                "windows"  "32"
+                "linux"    "32"
+            }
+
+            "mstudiobbox_t::angOffsetOrientation"
+            {
+                "windows"  "36"
+                "linux"    "36"
+            }
+
+            "mstudiobbox_t::flCapsuleRadius"
+            {
+                "windows"  "48"
+                "linux"    "48"
+            }
+
+            "sizeof::mstudiobbox_t"
+            {
+                "windows"  "68"
+                "linux"    "68"
+            }
+
+            // mstudiobone_t
+
+            "mstudiobone_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiobone_t::parent"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudiobone_t::bonecontroller"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudiobone_t::pos"
+            {
+                "windows"  "32"
+                "linux"    "32"
+            }
+
+            "mstudiobone_t::quat"
+            {
+                "windows"  "44"
+                "linux"    "44"
+            }
+
+            "mstudiobone_t::rot"
+            {
+                "windows"  "60"
+                "linux"    "60"
+            }
+
+            "mstudiobone_t::posscale"
+            {
+                "windows"  "72"
+                "linux"    "72"
+            }
+
+            "mstudiobone_t::rotscale"
+            {
+                "windows"  "84"
+                "linux"    "84"
+            }
+
+            "mstudiobone_t::poseToBone"
+            {
+                "windows"  "96"
+                "linux"    "96"
+            }
+
+            "mstudiobone_t::qAlignment"
+            {
+                "windows"  "144"
+                "linux"    "144"
+            }
+
+            "mstudiobone_t::flags"
+            {
+                "windows"  "160"
+                "linux"    "160"
+            }
+
+            "mstudiobone_t::proctype"
+            {
+                "windows"  "164"
+                "linux"    "164"
+            }
+
+            "mstudiobone_t::procindex"
+            {
+                "windows"  "168"
+                "linux"    "168"
+            }
+
+            "mstudiobone_t::physicsbone"
+            {
+                "windows"  "172"
+                "linux"    "172"
+            }
+
+            "mstudiobone_t::surfacepropidx"
+            {
+                "windows"  "176"
+                "linux"    "176"
+            }
+
+            "mstudiobone_t::contents"
+            {
+                "windows"  "180"
+                "linux"    "180"
+            }
+
+            "mstudiobone_t::surfacepropLookup"
+            {
+                "windows"  "184"
+                "linux"    "184"
+            }
+
+            "sizeof::mstudiobone_t"
+            {
+                "windows"  "216"
+                "linux"    "216"
+            }
+
+            // mstudiobonecontroller_t
+
+            "mstudiobonecontroller_t::bone"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiobonecontroller_t::type"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudiobonecontroller_t::start"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudiobonecontroller_t::end"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudiobonecontroller_t::rest"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            "mstudiobonecontroller_t::inputfield"
+            {
+                "windows"  "20"
+                "linux"    "20"
+            }
+
+            "sizeof::mstudiobonecontroller_t"
+            {
+                "windows"  "56"
+                "linux"    "56"
+            }
+
+            // mstudiohitboxset_t
+
+            "mstudiohitboxset_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiohitboxset_t::numhitboxes"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudiohitboxset_t::hitboxindex"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "sizeof::mstudiohitboxset_t"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            // mstudioanimdesc_t
+
+            "mstudioanimdesc_t::baseptr"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioanimdesc_t::sznameindex"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioanimdesc_t::fps"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioanimdesc_t::flags"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudioanimdesc_t::numframes"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            "mstudioanimdesc_t::nummovements"
+            {
+                "windows"  "20"
+                "linux"    "20"
+            }
+
+            "mstudioanimdesc_t::movementindex"
+            {
+                "windows"  "24"
+                "linux"    "24"
+            }
+
+            "mstudioanimdesc_t::ikrulezeroframeindex"
+            {
+                "windows"  "28"
+                "linux"    "28"
+            }
+
+            "mstudioanimdesc_t::unused1"
+            {
+                "windows"  "32"
+                "linux"    "32"
+            }
+
+            "mstudioanimdesc_t::animblock"
+            {
+                "windows"  "52"
+                "linux"    "52"
+            }
+
+            "mstudioanimdesc_t::animindex"
+            {
+                "windows"  "56"
+                "linux"    "56"
+            }
+
+            "mstudioanimdesc_t::numikrules"
+            {
+                "windows"  "60"
+                "linux"    "60"
+            }
+
+            "mstudioanimdesc_t::ikruleindex"
+            {
+                "windows"  "64"
+                "linux"    "64"
+            }
+
+            "mstudioanimdesc_t::animblockikruleindex"
+            {
+                "windows"  "68"
+                "linux"    "68"
+            }
+
+            "mstudioanimdesc_t::numlocalhierarchy"
+            {
+                "windows"  "72"
+                "linux"    "72"
+            }
+
+            "mstudioanimdesc_t::localhierarchyindex"
+            {
+                "windows"  "76"
+                "linux"    "76"
+            }
+
+            "mstudioanimdesc_t::sectionindex"
+            {
+                "windows"  "80"
+                "linux"    "80"
+            }
+
+            "mstudioanimdesc_t::sectionframes"
+            {
+                "windows"  "84"
+                "linux"    "84"
+            }
+
+            "mstudioanimdesc_t::zeroframespan"
+            {
+                "windows"  "88"
+                "linux"    "88"
+            }
+
+            "mstudioanimdesc_t::zeroframecount"
+            {
+                "windows"  "90"
+                "linux"    "90"
+            }
+
+            "mstudioanimdesc_t::zeroframeindex"
+            {
+                "windows"  "92"
+                "linux"    "92"
+            }
+
+            "mstudioanimdesc_t::zeroframestalltime"
+            {
+                "windows"  "96"
+                "linux"    "96"
+            }
+
+            "sizeof::mstudioanimdesc_t"
+            {
+                "windows"  "100"
+                "linux"    "100"
+            }
+
+            // mstudioseqdesc_t
+
+            "mstudioseqdesc_t::baseptr"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioseqdesc_t::szlabelindex"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioseqdesc_t::szactivitynameindex"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioseqdesc_t::flags"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudioseqdesc_t::activity"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            "mstudioseqdesc_t::actweight"
+            {
+                "windows"  "20"
+                "linux"    "20"
+            }
+
+            "mstudioseqdesc_t::numevents"
+            {
+                "windows"  "24"
+                "linux"    "24"
+            }
+
+            "mstudioseqdesc_t::eventindex"
+            {
+                "windows"  "28"
+                "linux"    "28"
+            }
+
+            "mstudioseqdesc_t::bbmin"
+            {
+                "windows"  "32"
+                "linux"    "32"
+            }
+
+            "mstudioseqdesc_t::bbmax"
+            {
+                "windows"  "44"
+                "linux"    "44"
+            }
+
+            "mstudioseqdesc_t::numblends"
+            {
+                "windows"  "56"
+                "linux"    "56"
+            }
+
+            "mstudioseqdesc_t::animindexindex"
+            {
+                "windows"  "60"
+                "linux"    "60"
+            }
+
+            // return|value|
+
+            "mstudioseqdesc_t::movementindex"
+            {
+                "windows"  "64"
+                "linux"    "64"
+            }
+
+            "mstudioseqdesc_t::groupsize"
+            {
+                "windows"  "68"
+                "linux"    "68"
+            }
+
+            "mstudioseqdesc_t::paramindex"
+            {
+                "windows"  "76"
+                "linux"    "76"
+            }
+
+            "mstudioseqdesc_t::paramstart"
+            {
+                "windows"  "84"
+                "linux"    "84"
+            }
+
+            "mstudioseqdesc_t::paramend"
+            {
+                "windows"  "92"
+                "linux"    "92"
+            }
+
+            "mstudioseqdesc_t::paramparent"
+            {
+                "windows"  "100"
+                "linux"    "100"
+            }
+
+            "mstudioseqdesc_t::fadeintime"
+            {
+                "windows"  "104"
+                "linux"    "104"
+            }
+
+            "mstudioseqdesc_t::fadeouttime"
+            {
+                "windows"  "108"
+                "linux"    "108"
+            }
+
+            "mstudioseqdesc_t::localentrynode"
+            {
+                "windows"  "112"
+                "linux"    "112"
+            }
+
+            "mstudioseqdesc_t::localexitnode"
+            {
+                "windows"  "116"
+                "linux"    "116"
+            }
+
+            "mstudioseqdesc_t::nodeflags"
+            {
+                "windows"  "120"
+                "linux"    "120"
+            }
+
+            "mstudioseqdesc_t::entryphase"
+            {
+                "windows"  "124"
+                "linux"    "124"
+            }
+
+            "mstudioseqdesc_t::exitphase"
+            {
+                "windows"  "128"
+                "linux"    "128"
+            }
+
+            "mstudioseqdesc_t::lastframe"
+            {
+                "windows"  "132"
+                "linux"    "132"
+            }
+
+            "mstudioseqdesc_t::nextseq"
+            {
+                "windows"  "136"
+                "linux"    "136"
+            }
+
+            "mstudioseqdesc_t::pose"
+            {
+                "windows"  "140"
+                "linux"    "140"
+            }
+
+            "mstudioseqdesc_t::numikrules"
+            {
+                "windows"  "144"
+                "linux"    "144"
+            }
+
+            "mstudioseqdesc_t::numautolayers"
+            {
+                "windows"  "148"
+                "linux"    "148"
+            }
+
+            "mstudioseqdesc_t::autolayerindex"
+            {
+                "windows"  "152"
+                "linux"    "152"
+            }
+
+            "mstudioseqdesc_t::weightlistindex"
+            {
+                "windows"  "156"
+                "linux"    "156"
+            }
+
+            "mstudioseqdesc_t::posekeyindex"
+            {
+                "windows"  "160"
+                "linux"    "160"
+            }
+
+            "mstudioseqdesc_t::numiklocks"
+            {
+                "windows"  "164"
+                "linux"    "164"
+            }
+
+            "mstudioseqdesc_t::iklockindex"
+            {
+                "windows"  "168"
+                "linux"    "168"
+            }
+
+            "mstudioseqdesc_t::keyvalueindex"
+            {
+                "windows"  "172"
+                "linux"    "172"
+            }
+
+            "mstudioseqdesc_t::keyvaluesize"
+            {
+                "windows"  "176"
+                "linux"    "176"
+            }
+
+            "mstudioseqdesc_t::cycleposeindex"
+            {
+                "windows"  "180"
+                "linux"    "180"
+            }
+
+            "mstudioseqdesc_t::activitymodifierindex"
+            {
+                "windows"  "184"
+                "linux"    "184"
+            }
+
+            "mstudioseqdesc_t::numactivitymodifiers"
+            {
+                "windows"  "188"
+                "linux"    "188"
+            }
+
+            "mstudioseqdesc_t::animtagindex"
+            {
+                "windows"  "192"
+                "linux"    "192"
+            }
+
+            "mstudioseqdesc_t::numanimtags"
+            {
+                "windows"  "196"
+                "linux"    "196"
+            }
+
+            "mstudioseqdesc_t::rootDriverIndex"
+            {
+                "windows"  "200"
+                "linux"    "200"
+            }
+
+            "mstudioseqdesc_t::unused"
+            {
+                "windows"  "204"
+                "linux"    "204"
+            }
+
+            "sizeof::mstudioseqdesc_t"
+            {
+                "windows"  "212"
+                "linux"    "212"
+            }
+
+            // mstudiobodyparts_t
+
+            "mstudiobodyparts_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiobodyparts_t::nummodels"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudiobodyparts_t::base"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudiobodyparts_t::modelindex"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "sizeof::mstudiobodyparts_t"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            // mstudioattachment_t
+
+            "mstudioattachment_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioattachment_t::flags"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioattachment_t::localbone"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioattachment_t::local"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudioattachment_t::unused"
+            {
+                "windows"  "60"
+                "linux"    "60"
+            }
+
+            "sizeof::mstudioattachment_t"
+            {
+                "windows"  "92"
+                "linux"    "92"
+            }   
+
+            // mstudioflexdesc_t
+
+            "mstudioflexdesc_t::szFACSindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "sizeof::mstudioflexdesc_t"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            // mstudioflexcontroller_t
+
+            "mstudioflexcontroller_t::sztypeindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioflexcontroller_t::sznameindex"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioflexcontroller_t::localToGlobal"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioflexcontroller_t::min"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudioflexcontroller_t::max"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            "sizeof::mstudioflexcontroller_t"
+            {
+                "windows"  "20"
+                "linux"    "20"
+            }
+
+            // mstudioflexrule_t
+
+            "mstudioflexrule_t::flex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioflexrule_t::numops"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioflexrule_t::opindex"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "sizeof::mstudioflexrule_t"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            // mstudioikchain_t
+
+            "mstudioikchain_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioikchain_t::linktype"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioikchain_t::numlinks"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioikchain_t::linkindex"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "sizeof::mstudioikchain_t"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            // mstudiomouth_t
+
+            "mstudiomouth_t::bone"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiomouth_t::forward"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudiomouth_t::flexdesc"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            "sizeof::mstudiomouth_t"
+            {
+                "windows"  "20"
+                "linux"    "20"
+            }
+
+            // mstudioposeparamdesc_t
+
+            "mstudioposeparamdesc_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioposeparamdesc_t::flags"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioposeparamdesc_t::start"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioposeparamdesc_t::end"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudioposeparamdesc_t::loop"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            "sizeof::mstudioposeparamdesc_t"
+            {
+                "windows"  "20"
+                "linux"    "20"
+            }
+
+            // mstudioiklock_t
+
+            "mstudioiklock_t::chain"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioiklock_t::flPosWeight"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioiklock_t::flLocalQWeight"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioiklock_t::flags"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudioiklock_t::unused"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            "sizeof::mstudioiklock_t"
+            {
+                "windows"  "32"
+                "linux"    "32"
+            }
+
+            // mstudiomodelgroup_t
+
+            "mstudiomodelgroup_t::szlabelindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudiomodelgroup_t::sznameindex"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "sizeof::mstudiomodelgroup_t"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            // mstudioanimblock_t
+
+            "mstudioanimblock_t::datastart"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioanimblock_t::dataend"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "sizeof::mstudioanimblock_t"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            // mstudioflexcontrollerui_t
+
+            "mstudioflexcontrollerui_t::sznameindex"
+            {
+                "windows"  "0"
+                "linux"    "0"
+            }
+
+            "mstudioflexcontrollerui_t::szindex0"
+            {
+                "windows"  "4"
+                "linux"    "4"
+            }
+
+            "mstudioflexcontrollerui_t::szindex1"
+            {
+                "windows"  "8"
+                "linux"    "8"
+            }
+
+            "mstudioflexcontrollerui_t::szindex2"
+            {
+                "windows"  "12"
+                "linux"    "12"
+            }
+
+            "mstudioflexcontrollerui_t::remaptype"
+            {
+                "windows"  "16"
+                "linux"    "16"
+            }
+
+            // bool|stereo|
+
+            "mstudioflexcontrollerui_t::unused"
+            {
+                "windows"  "17"
+                "linux"    "17"
+            }
+
+            "sizeof::mstudioflexcontrollerui_t"
+            {
+                "windows"  "19"
+                "linux"    "19"
+            }
         }
     }
 }
