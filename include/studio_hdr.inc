@@ -19,6 +19,8 @@
 #endif
 #define _studio_hdr_included
 
+#include <sdktools>
+
 #define INVALID_ADDRESS_OFFSET view_as<Address>(-1)
 
 // Functions to get CStudioHdr from model path & delete it.
