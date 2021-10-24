@@ -16,23 +16,13 @@
 
 "Games"
 {
-    "csgo"
+    "#default"
     {
-        "Signatures"
+        "#supported"
         {
-            "ModelSoundsCache_LoadModel"
-            {
-                "library"    "server"
-                "windows"   "\x8B\xD1\x8B\x0D\x2A\x2A\x2A\x2A\x56"
-                "linux"        "\x55\x89\xE5\x56\x53\x83\xEC\x10\xA1\x2A\x2A\x2A\x2A\x8B\x4D\x08"
-            }
-
-            "ModelSoundsCache_FinishModel"
-            {
-                "library"    "server"
-                "windows"   "\x51\x56\x57\x8B\xF9\x8B\x4F\x08"
-                "linux"        "\x55\x89\xE5\x56\x53\x83\xEC\x20\x8B\x5D\x08\x85\xDB"
-            }
+            "game"  "csgo"
+            "game"  "cstrike"
+            "game"  "tf"
         }
 
         "Offsets"
@@ -1603,6 +1593,86 @@
             {
                 "windows"  "19"
                 "linux"    "19"
+            }
+        }
+    }
+
+    "#default"
+    {
+        "#supported"
+        {
+            "game"  "csgo"
+        }
+
+        "Signatures"
+        {
+            "ModelSoundsCache_LoadModel"
+            {
+                "library"    "server"
+                "windows"   "\x8B\xD1\x8B\x0D\x2A\x2A\x2A\x2A\x56"
+                "linux"        "\x55\x89\xE5\x56\x53\x83\xEC\x10\xA1\x2A\x2A\x2A\x2A\x8B\x4D\x08"
+            }
+
+            "ModelSoundsCache_FinishModel"
+            {
+                "library"    "server"
+                "windows"   "\x51\x56\x57\x8B\xF9\x8B\x4F\x08"
+                "linux"        "\x55\x89\xE5\x56\x53\x83\xEC\x20\x8B\x5D\x08\x85\xDB"
+            }
+        }
+    }
+
+    "#default"
+    {
+        "#supported"
+        {
+            "game"  "cstrike"
+            "game"  "tf"
+        }
+
+        "Signatures"
+        {
+            "ModelSoundsCache_LoadModel"
+            {
+                "library"    "server"
+                "windows"   "\x55\x8B\xEC\x8B\x0D\x2A\x2A\x2A\x2A\x57\x6A\x01"
+                "linux"        "@_Z26ModelSoundsCache_LoadModelPKc"
+            }
+        }
+    }
+
+    "#default"
+    {
+        "#supported"
+        {
+            "game"  "cstrike"
+        }
+
+        "Signatures"
+        {
+            "ModelSoundsCache_FinishModel"
+            {
+                "library"    "server"
+                "windows"   "\x55\x8B\xEC\x57\x8B\x7D\x08\x85\xFF\x74\x2A\x8B\xCF"
+                "linux"        "@_Z28ModelSoundsCache_FinishModelP10CStudioHdr"
+            }
+        }
+    }
+
+    "#default"
+    {
+        "#supported"
+        {
+            "game"  "tf"
+        }
+
+        "Signatures"
+        {
+            "ModelSoundsCache_FinishModel"
+            {
+                "library"    "server"
+                "windows"   "\x55\x8B\xEC\x56\x8B\x75\x08\x85\xF6\x74\x2A\x8B\xCE\xE8\x2A\x2A\x2A\x2A\x68\x90\x00\x00\x00"
+                "linux"        "@_Z28ModelSoundsCache_FinishModelP10CStudioHdr"
             }
         }
     }
