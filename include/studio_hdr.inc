@@ -2071,7 +2071,7 @@ methodmap BoneController < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'start' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiobonecontroller_t.start, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiobonecontroller_t.start, NumberType_Int32));
 		}
 	}
 
@@ -2082,7 +2082,7 @@ methodmap BoneController < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'end' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiobonecontroller_t.end, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiobonecontroller_t.end, NumberType_Int32));
 		}
 	}
 
@@ -2183,7 +2183,7 @@ methodmap HitBox < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'flCapsuleRadius' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiobbox_t.flCapsuleRadius, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiobbox_t.flCapsuleRadius, NumberType_Int32));
 		}
 	}
 }
@@ -2305,7 +2305,7 @@ methodmap Animation < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'fps' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioanimdesc_t.fps, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioanimdesc_t.fps, NumberType_Int32));
 		}
 	}
 
@@ -2503,7 +2503,7 @@ methodmap Animation < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'zeroframestalltime' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioanimdesc_t.zeroframestalltime, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioanimdesc_t.zeroframestalltime, NumberType_Int32));
 		}
 	}
 }
@@ -2539,7 +2539,7 @@ methodmap IKLock < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'flPosWeight' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioiklock_t.flPosWeight, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioiklock_t.flPosWeight, NumberType_Int32));
 		}
 	}
 
@@ -2550,7 +2550,7 @@ methodmap IKLock < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'flLocalQWeight' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioiklock_t.flLocalQWeight, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioiklock_t.flLocalQWeight, NumberType_Int32));
 		}
 	}
 
@@ -2767,7 +2767,7 @@ methodmap Sequence < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'fadeintime' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.fadeintime, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.fadeintime, NumberType_Int32));
 		}
 	}
 
@@ -2778,7 +2778,7 @@ methodmap Sequence < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'fadeouttime' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.fadeouttime, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.fadeouttime, NumberType_Int32));
 		}
 	}
 
@@ -2822,7 +2822,7 @@ methodmap Sequence < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'entryphase' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.entryphase, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.entryphase, NumberType_Int32));
 		}
 	}
 
@@ -2833,7 +2833,7 @@ methodmap Sequence < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'exitphase' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.exitphase, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.exitphase, NumberType_Int32));
 		}
 	}
 
@@ -2844,7 +2844,7 @@ methodmap Sequence < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'lastframe' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.lastframe, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioseqdesc_t.lastframe, NumberType_Int32));
 		}
 	}
 
@@ -3268,7 +3268,7 @@ methodmap FlexController < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'min' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioflexcontroller_t.min, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioflexcontroller_t.min, NumberType_Int32));
 		}
 	}
 
@@ -3279,7 +3279,7 @@ methodmap FlexController < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'max' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioflexcontroller_t.max, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioflexcontroller_t.max, NumberType_Int32));
 		}
 	}
 }
@@ -3489,7 +3489,7 @@ methodmap PoseParameter < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'start' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioposeparamdesc_t.start, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioposeparamdesc_t.start, NumberType_Int32));
 		}
 	}
 
@@ -3500,7 +3500,7 @@ methodmap PoseParameter < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'end' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioposeparamdesc_t.end, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioposeparamdesc_t.end, NumberType_Int32));
 		}
 	}
 
@@ -3511,7 +3511,7 @@ methodmap PoseParameter < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'loop' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioposeparamdesc_t.loop, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudioposeparamdesc_t.loop, NumberType_Int32));
 		}
 	}
 }
@@ -4292,7 +4292,7 @@ methodmap StudioHdr < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'mass' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.studiohdr_t.mass, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.studiohdr_t.mass, NumberType_Int32));
 		}
 	}
 
@@ -4435,7 +4435,7 @@ methodmap StudioHdr < AddressObject
 			this.Validate();
 			
 			// 'this' [base] + 'flVertAnimFixedPointScale' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.studiohdr_t.flVertAnimFixedPointScale, NumberType_Int32);
+			return view_as<float>(LoadFromAddress(view_as<Address>(this) + g_Offsets.studiohdr_t.flVertAnimFixedPointScale, NumberType_Int32));
 		}
 	}
 
