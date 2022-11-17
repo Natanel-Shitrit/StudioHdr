@@ -23,6 +23,7 @@
             "game"  "csgo"
             "game"  "cstrike"
             "game"  "tf"
+            "game"  "hl2mp"
         }
 
         "Offsets"
@@ -1628,6 +1629,7 @@
         {
             "game"  "cstrike"
             "game"  "tf"
+            "game"  "hl2mp"
         }
 
         "Signatures"
@@ -1646,6 +1648,7 @@
         "#supported"
         {
             "game"  "cstrike"
+            "game"  "hl2mp"
         }
 
         "Signatures"
