@@ -2619,6 +2619,13 @@ methodmap Sequence < AddressObject
 		}
 	}
 
+	public void GetActivityName(char[] buffer, int buffer_size)
+	{
+		this.Validate();
+		
+		LoadStringFromAddress(view_as<Address>(this) + view_as<Address>(this.szactivitynameindex), buffer, buffer_size);
+	}
+	
 	property int flags
 	{
 		public get()
