@@ -1763,6 +1763,34 @@ enum struct mstudioflexcontrollerui_t
 	}
 }
 
+enum struct mstudiotexture_t
+{
+	int size;
+	Address sznameindex;
+	Address flags;
+
+	void LoadOffsets(GameData gamedata)
+	{
+		// [offset] mstudiotexture_t::sznameindex
+		if ((this.sznameindex = view_as<Address>(gamedata.GetOffset("mstudiotexture_t::sznameindex"))) == INVALID_ADDRESS_OFFSET)
+		{
+		    SetFailState("Failed to get 'mstudiotexture_t::sznameindex' offset.");
+		}
+
+		// [offset] mstudiotexture_t::flags
+		if ((this.flags = view_as<Address>(gamedata.GetOffset("mstudiotexture_t::flags"))) == INVALID_ADDRESS_OFFSET)
+		{
+		    SetFailState("Failed to get 'mstudiotexture_t::flags' offset.");
+		}
+
+		// [sizeof] mstudiotexture_t
+		if ((this.size = gamedata.GetOffset("sizeof::mstudiotexture_t")) == -1)
+		{
+		    SetFailState("Failed to get 'mstudiotexture_t' sizeof.");
+		}
+	}
+}
+
 // Hold all offsets
 enum struct Offsets
 {
@@ -1804,6 +1832,8 @@ enum struct Offsets
 	mstudioanimblock_t mstudioanimblock_t;
 	// Flex Controller UI
 	mstudioflexcontrollerui_t mstudioflexcontrollerui_t;
+	// Texture
+	mstudiotexture_t mstudiotexture_t;
 
 	void LoadOffsets(GameData gamedata)
 	{
@@ -1826,6 +1856,7 @@ enum struct Offsets
 		this.mstudiomodelgroup_t.LoadOffsets(gamedata);
 		this.mstudioanimblock_t.LoadOffsets(gamedata);
 		this.mstudioflexcontrollerui_t.LoadOffsets(gamedata);
+		this.mstudiotexture_t.LoadOffsets(gamedata);
 	}
 }
 Offsets g_Offsets;
@@ -3686,6 +3717,49 @@ methodmap FlexControllerUI < AddressObject
 	}
 }
 
+// Texture //
+enum Texture
+{
+	NULL_TEXTURE
+}
+
+methodmap Texture < AddressObject
+{
+	public Texture(Address base, int index)
+	{
+		return view_as<Texture>(base + view_as<Address>(g_Offsets.mstudiotexture_t.size * index));
+	}
+
+	property int sznameindex
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'sznameindex' [offset]
+			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiotexture_t.sznameindex, NumberType_Int32);
+		}
+	}
+
+	public void GetName(char[] buffer, int buffer_size)
+	{
+		this.Validate();
+		
+		LoadStringFromAddress(view_as<Address>(this) + view_as<Address>(this.sznameindex), buffer, buffer_size);
+	}
+
+	property int flags
+	{
+		public get()
+		{
+			this.Validate();
+			
+			// 'this' [base] + 'flags' [offset]
+			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiotexture_t.flags, NumberType_Int32);
+		}
+	}
+}
+
 // StudioHdr //
 enum StudioHdr
 {
@@ -4673,6 +4747,30 @@ methodmap StudioHdr < AddressObject
 		}
 
 		return NULL_FLEX_CONTROLLER_UI;
+	}
+
+	public Texture GetTexture(int index)
+	{
+		this.Validate();
+
+		if (0 <= index < this.numtextures)
+		{
+			return Texture(view_as<Address>(this) + view_as<Address>(this.textureindex), index);
+		}
+
+		return NULL_TEXTURE;
+	}
+	
+	public void GetCdTexture(int index, char[] buffer, int buffer_size)
+	{
+		this.Validate();
+
+		if (0 <= index < this.numcdtextures)
+		{
+			Address charptr = LoadFromAddress(view_as<Address>(this) + view_as<Address>(this.cdtextureindex + (index * 4)), NumberType_Int32);
+			LoadStringFromAddress(view_as<Address>(this) + charptr, buffer, buffer_size);
+		}
+		else ThrowError("Invalid index: %d (count: %d)", index, this.numcdtextures);
 	}
 	
 	// Objects [Find By Name]

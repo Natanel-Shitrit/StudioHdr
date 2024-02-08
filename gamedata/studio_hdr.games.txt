@@ -1596,6 +1596,26 @@
                 "windows"  "19"
                 "linux"    "19"
             }
+
+            // mstudiotexture_t
+
+            "mstudiotexture_t::sznameindex"
+            {
+                "windows"	"0"
+                "linux"     "0"
+            }
+
+            "mstudiotexture_t::flags"
+            {
+                "windows"	"4"
+                "linux"     "4"
+            }
+
+            "sizeof::mstudiotexture_t"
+            {
+                "windows"	"64"
+                "linux"     "64"
+            }
         }
     }
 
