@@ -1768,8 +1768,6 @@ enum struct mstudiotexture_t
 	int size;
 	Address sznameindex;
 	Address flags;
-	Address used;
-	Address unused1;
 
 	void LoadOffsets(GameData gamedata)
 	{
@@ -1783,18 +1781,6 @@ enum struct mstudiotexture_t
 		if ((this.flags = view_as<Address>(gamedata.GetOffset("mstudiotexture_t::flags"))) == INVALID_ADDRESS_OFFSET)
 		{
 		    SetFailState("Failed to get 'mstudiotexture_t::flags' offset.");
-		}
-
-		// [offset] mstudiotexture_t::used
-		if ((this.used = view_as<Address>(gamedata.GetOffset("mstudiotexture_t::used"))) == INVALID_ADDRESS_OFFSET)
-		{
-		    SetFailState("Failed to get 'mstudiotexture_t::used' offset.");
-		}
-
-		// [offset] mstudiotexture_t::unused1
-		if ((this.unused1 = view_as<Address>(gamedata.GetOffset("mstudiotexture_t::unused1"))) == INVALID_ADDRESS_OFFSET)
-		{
-		    SetFailState("Failed to get 'mstudiotexture_t::unused1' offset.");
 		}
 
 		// [sizeof] mstudiotexture_t
@@ -3763,28 +3749,6 @@ methodmap Texture < AddressObject
 			
 			// 'this' [base] + 'flags' [offset]
 			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiotexture_t.flags, NumberType_Int32);
-		}
-	}
-
-	property int used
-	{
-		public get()
-		{
-			this.Validate();
-			
-			// 'this' [base] + 'used' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiotexture_t.used, NumberType_Int32);
-		}
-	}
-
-	property int unused1
-	{
-		public get()
-		{
-			this.Validate();
-			
-			// 'this' [base] + 'unused1' [offset]
-			return LoadFromAddress(view_as<Address>(this) + g_Offsets.mstudiotexture_t.unused1, NumberType_Int32);
 		}
 	}
 }
